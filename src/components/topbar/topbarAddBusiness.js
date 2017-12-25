@@ -1,28 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { InputSearch } from '../../components/uielements/input';
-import TopbarSearchModal from './topbarSearchModal.style';
+import TopbarModal from './topbarModal.style';
+import PanelMerchants from '../PanelMerchants/userPanel';
+import userpic from '../../image/user1.png';
 
-class Searchbar extends Component {
-  componentDidMount() {
-    setTimeout(() => {
-      try {
-        document.getElementById('InputTopbarSearch').focus();
-      } catch (e) {}
-    }, 200);
-  }
-  render() {
-    return (
-      <InputSearch
-        id="InputTopbarSearch"
-        size="large"
-        placeholder="Enter search text"
-      />
-    );
-  }
-}
-
-class TopbarAddressSelector extends Component {
+class TopbarUser extends Component {
   constructor(props) {
     super(props);
     this.handleOk = this.handleOk.bind(this);
@@ -52,24 +34,24 @@ class TopbarAddressSelector extends Component {
     const { customizedTheme } = this.props;
     const { visible } = this.state;
     return (
-      <div onClick={this.showModal}>
+      <div onClick={this.showModal} >
         {/* <Button type="primary" onClick={this.showModal}>Open</Button> */}
-        <i
-          className="ion-ios-search-strong"
-        />
-        <TopbarSearchModal
-          title="Basic Modal"
+         <div className="isoImgWrapper">
+          <i className="ion-outlet small-margin-right "/> Plug my Business
+        </div>
+        <TopbarModal
+          title="User Panel Modal"
           visible={visible}
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           wrapClassName="isoSearchModal"
-          width="60%"
+          width="80%"
           footer={null}
         >
           <div className="isoSearchContainer">
-            {visible ? <Searchbar /> : ''}
+            {visible ? <PanelMerchants /> : ''}
           </div>
-        </TopbarSearchModal>
+        </TopbarModal>
       </div>
     );
   }
@@ -77,4 +59,4 @@ class TopbarAddressSelector extends Component {
 
 export default connect(state => ({
   ...state.App.toJS()
-}))(TopbarAddressSelector);
+}))(TopbarUser);

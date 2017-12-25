@@ -9,6 +9,7 @@ import Logo from '../../components/utility/logo';
 import { Link } from 'react-router-dom';
 import TopbarAddressSelector from '../../components/topbar/topbarAddressSelector'; 
 import TopbarUserSessions from '../../components/topbar/topbarUserSessions'; 
+import TopbarAddBusiness from '../../components/topbar/topbarAddBusiness'; 
 import {
   TopbarSearch,
   TopbarUser
@@ -54,7 +55,7 @@ class Topbar extends Component {
             </li>
             <li>
             <Link to="/dashboard" onClick={toggleCollapsed}>
-           <i className="ion-outlet small-margin-right "/> Plug My Business
+              <TopbarAddBusiness />
             </Link>
             
             </li>
