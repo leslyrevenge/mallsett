@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'antd';
-import { Upload, Icon } from 'antd';
+import { Row, Col, DatePicker } from 'antd';
+import {  Upload, Icon   } from 'antd';
 
 import Input, { InputGroup } from '../../../components/uielements/input';
 import Select, { SelectOption } from '../../../components/uielements/select';
 import Button from '../../../components/uielements/button';
 import ContentHolder from '../../../components/utility/contentHolder';
+import moment from 'moment';
+
+
+const dateFormat = 'YYYY/MM/DD';
 const Option = SelectOption;
 
 const children = [];
@@ -66,8 +70,14 @@ class CreateAddress extends Component {
           </Col>
         </InputGroup>
         <InputGroup size="large" style={{ marginBottom: '15px' }}>
-          Interest
-          <Col span="24">
+          <Col span="12">
+            DOB <br />
+                <DatePicker defaultValue={moment('2015/01/01', dateFormat)} style={{ width: '100%' }} format={dateFormat} />
+ 
+
+          </Col>
+          <Col span="12">
+            Interests
             <Select
                   mode="multiple"
                   style={{ width: '100%' }}

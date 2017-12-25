@@ -1,3 +1,3 @@
-# Isomorphic - React Redux Admin Dashboard `Version 2.0`
+# plugg me beta `Version 0.0.1`
 
-### Please check `src/config.js` & edit as your app.
+### Order Anything, Not Just Food.
