@@ -33,7 +33,7 @@ const steps = [{
 }, {
   title: 'Find my Business',
   icon: 'environment-o',
-  content: <Suppliers />,
+  content: <FindMyBusiness />,
   help: 'soemthing here to help'
 }, {
   title: 'Parent Company',
