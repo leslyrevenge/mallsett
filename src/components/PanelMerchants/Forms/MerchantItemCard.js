@@ -82,7 +82,7 @@ class MerchantItemCard extends Component {
         <Card title={<MerchantTitle />} bordered={true}>
         <Row gutter={8} style={{ marginBottom: 8 }}>
           <InputGroup size="small">
-          <Col span="24"  style={{ marginTop: 2 }}>
+          <Col span="12"  style={{ marginTop: 2 }}>
           <h4>Google Business Category <Popover content={(
             <div>
               <InputGroup size="small" style={{ marginBottom: '15px' }}>
@@ -96,7 +96,7 @@ class MerchantItemCard extends Component {
           </Popover> </h4>
           </Col>
          
-          <Col span="24">
+          <Col span="12">
             <Select
                   mode="multiple"
                   style={{ width: '100%' }}
@@ -112,7 +112,7 @@ class MerchantItemCard extends Component {
         <Row gutter={8} style={{ marginBottom: 8 }}>
           <InputGroup size="small">
           
-          <Col span="24"  style={{ marginTop: 4 }}>
+          <Col span="12"  style={{ marginTop: 4 }}>
           <h4>Plugg Business Type<Popover content={(
             <div>
               <InputGroup size="small" style={{ marginBottom: '15px' }}>
@@ -125,7 +125,7 @@ class MerchantItemCard extends Component {
           <Button type="dashed" icon="question-circle-o" />
           </Popover> </h4>
           </Col>
-          <Col span="24">
+          <Col span="12">
             <Select
                   mode=""
                   style={{ width: '100%' }}
@@ -142,20 +142,80 @@ class MerchantItemCard extends Component {
         <Row gutter={8} style={{ marginBottom: 8 }}>
           <InputGroup size="small">
           
-          <Col span="24"  style={{ marginTop: 4 }}>
+          <Col span="12"  style={{ marginTop: 4 }}>
           <h4>Assigned Phone Number<Popover content={(
             <div>
               <InputGroup size="small" style={{ marginBottom: '15px' }}>
               <Col span="24">
-           explains the category
+           explains the phone number 
           </Col>
         </InputGroup>
               </div>)} 
-            title="Google Categories"  trigger="click">
+            title="Phone Number"  trigger="click">
           <Button type="dashed" icon="question-circle-o" />
           </Popover> </h4>
           </Col>
-          <Col span="24">
+          <Col span="12">
+            <Select
+                  mode=""
+                  style={{ width: '100%' }}
+                  placeholder="Business Type"
+                  defaultValue={['a10', 'c12']}
+                  onChange={this.handleChange}
+                >
+                  {children}
+                </Select>
+                
+          </Col>
+        </InputGroup>
+        </Row>
+        <Row gutter={8} style={{ marginBottom: 8 }}>
+          <InputGroup size="small">
+          
+          <Col span="12"  style={{ marginTop: 4 }}>
+          <h4>Commercial: Business 2 Customer<Popover content={(
+            <div>
+              <InputGroup size="small" style={{ marginBottom: '15px' }}>
+              <Col span="24">
+           expelains the commercial
+          </Col>
+        </InputGroup>
+              </div>)} 
+            title="Commercial: Business 2 Customer "  trigger="click">
+          <Button type="dashed" icon="question-circle-o" />
+          </Popover> </h4>
+          </Col>
+          <Col span="12">
+            <Select
+                  mode=""
+                  style={{ width: '100%' }}
+                  placeholder="Business Type"
+                  defaultValue={['a10', 'c12']}
+                  onChange={this.handleChange}
+                >
+                  {children}
+                </Select>
+                
+          </Col>
+        </InputGroup>
+        </Row>
+        <Row gutter={8} style={{ marginBottom: 8 }}>
+          <InputGroup size="small">
+          
+          <Col span="12"  style={{ marginTop: 4 }}>
+          <h4>Commercial: Business 2 Business<Popover content={(
+            <div>
+              <InputGroup size="small" style={{ marginBottom: '15px' }}>
+              <Col span="24">
+           explains the commercial
+          </Col>
+        </InputGroup>
+              </div>)} 
+            title="youtube commercial"  trigger="click">
+          <Button type="dashed" icon="question-circle-o" />
+          </Popover> </h4>
+          </Col>
+          <Col span="12">
             <Select
                   mode=""
                   style={{ width: '100%' }}
@@ -188,7 +248,23 @@ class MerchantItemCard extends Component {
               </div>)} 
             title="Here's the Data"  trigger="click">
           <Button type="dashed" icon="pie-chart"> Data </Button>
-          </Popover> 
+          </Popover> <Popover content={(
+            <div>
+              <p className="colorBlue"> Passes: 50% </p>
+              <p className="colorPink"> Clicks: 20% </p>
+              <p className="colorOrange"> Miss Opportunities: 30% </p>
+              </div>)} 
+            title="B2C Commercial"  trigger="click">
+          <Button type="dashed" icon="video-camera"> B2B </Button>
+          </Popover> <Popover content={(
+            <div>
+              <p className="colorBlue"> Passes: 50% </p>
+              <p className="colorPink"> Clicks: 20% </p>
+              <p className="colorOrange"> Miss Opportunities: 30% </p>
+              </div>)} 
+            title="Here's the Data"  trigger="click">
+          <Button type="dashed" icon="video-camera">  B2C </Button>
+          </Popover>  
           </Col>
         </Row>
         <Row gutter={24} style={{ marginTop: 20 }}>
