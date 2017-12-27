@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { InputSearch } from '../../components/uielements/input';
-import UserPanelTab from './userPanelTab';
+import PlugBusiness from './PlugBusiness';
 
 class AddressForm extends Component {
   componentDidMount() {
@@ -12,7 +12,7 @@ class AddressForm extends Component {
   }
   render() {
     return (
-      <UserPanelTab
+      <PlugBusiness
       />
     );
   }

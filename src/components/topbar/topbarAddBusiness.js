@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TopbarModal from './topbarModal.style';
-import PanelMerchants from '../PanelMerchants/userPanel';
+import PlugBusiness from '../PanelMerchants/PlugBusiness';
 import userpic from '../../image/user1.png';
 
 class TopbarUser extends Component {
@@ -45,11 +45,11 @@ class TopbarUser extends Component {
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           wrapClassName="isoSearchModal"
-          width="80%"
+          width="50%"
           footer={null}
         >
           <div className="isoSearchContainer">
-            {visible ? <PanelMerchants /> : ''}
+            {visible ? <PlugBusiness /> : ''}
           </div>
         </TopbarModal>
       </div>
