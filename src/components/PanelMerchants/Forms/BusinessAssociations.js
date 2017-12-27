@@ -57,13 +57,13 @@ class CreateAddress extends Component {
           </Col>
         </InputGroup>
         <InputGroup  style={{ marginBottom: '15px' }}>
-        <Col span="16">
+        <Col span="12">
 
    
              
           </Col>
-          <Col span="8">
-            <Button size="small" type="primary" className="fullButton square">Done</Button>
+          <Col span="12">
+            <Button size="small" type="primary" className="fullButton square">Next</Button>
           </Col>
           
         </InputGroup>

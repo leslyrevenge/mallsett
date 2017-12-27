@@ -13,7 +13,7 @@ class BusinessLogo extends React.Component {
       uid: -1,
       name: 'xxx.png',
       status: 'done',
-      url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+      url: 'https://i.pinimg.com/564x/9b/16/ec/9b16ecfb472fc5f41bdd1b18ac1be835.jpg',
     }],
   };
 
@@ -33,15 +33,11 @@ class BusinessLogo extends React.Component {
     const uploadButton = (
       <div  style={{ width: '100%' }}>
         <Icon type="plus" />
-        <div className="ant-upload-text">Upload</div>
+        <div className="ant-upload-text"> Add Logo </div>
       </div>
     );
     return (
-      <Row  justify="start" >
-  <Col md={24} sm={24} xs={24} >
-      <ContentHolder>
-        <InputGroup size="large" style={{ marginBottom: '15px' }}>
-          <Col span="10">
+      <div>
         <Upload
           action="//jsonplaceholder.typicode.com/posts/"
           listType="picture-card"
@@ -55,14 +51,8 @@ class BusinessLogo extends React.Component {
         <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
           <img alt="example" style={{ width: '100%' }} src={previewImage} />
         </Modal>
-      </Col>
-       <Col span="14">
-         <img alt="example" style={{ width: '100%' }} src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
-        </Col>
-      </InputGroup>
-      </ContentHolder>
-      </Col>
-      </Row>
+      </div>
+
     );
   }
 }

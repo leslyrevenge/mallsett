@@ -60,3 +60,17 @@
 .fullButton {
   width: 100%;
 }
+
+.ellipsis {
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+}
+
+.imageFullWidth{
+  width: 100%;
+}
+.imgeFullHeight{
+  width: 100%;
+}

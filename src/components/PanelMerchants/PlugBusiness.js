@@ -1,304 +1,200 @@
 import React, { Component } from 'react';
-import Tabs, { TabPane } from '../../components/uielements/tabs';
-import PageHeader from '../../components/utility/pageHeader';
+import { Steps, Button, message, Icon, Popover } from 'antd';
 import Box from '../../components/utility/box';
-import LayoutWrapper from '../../components/utility/layoutWrapper';
-import IntlMessages from '../../components/utility/intlMessages';
-import { Row, Col } from 'antd';
-import { Icon } from 'antd';
-import { Timeline } from 'antd';
-import YouTube from 'react-youtube';
-
-import UserGamification from './Gamification/userGamification';
-import { Popover, Button } from 'antd';
-
+import PlugIntroduction from './Forms/PlugIntroduction';
 import FindMyBusiness from './Forms/FindMyBusiness';
 import AssignedPhoneNumber from './Forms/AssignedPhoneNumber';
-import BusinessDetail from './Forms/BusinessDetail';
+import ServiceCard from './Forms/ServiceCard';
 import Competitors from './Forms/Competitors';
 import Suppliers from './Forms/Suppliers';
-import PosSystems from './Forms/PosSystems';
+import Services from './Forms/Services';
 import ProfessionalServices from './Forms/ProfessionalServices';
 import Customers from './Forms/Customers';
 import CreditCardProcessor from './Forms/CreditCardProcessor';
 import BusinessAssociations from './Forms/BusinessAssociations';
-import CompletePlugBusiness from './Forms/FindMyBusiness';
+import CompletePlugBusiness from './Forms/CompletePlugBusiness';
 
-import BusinessProfile from './Lists/BusinessProfile';
-import BusinessLogo from './Forms/BusinessLogo';
+import Input, { InputGroup } from '../../components/uielements/input';
 
 
-// const TabPane = Tabs.TabPane;
+import PageHeader from '../../components/utility/pageHeader';
+import LayoutWrapper from '../../components/utility/layoutWrapper';
+import IntlMessages from '../../components/utility/intlMessages';
+import { Row, Col } from 'antd';
 
-function callback(key) {}
-const logoutBtn = <span className="red pointer textAlignLeft"> <Icon type="logout" /> logout </span>;
 
-  
-  const opts = {
-      width: '100%',
-      height: '100%',
-      playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 0,
-        controls: 0,
-        rel: 0 ,
-        showinfo: 0,
-        frameborder: 0,
-        modestbranding: 1
-      }
-    };
-    
-    const whyContents = {
-      FindMyBusiness: (
+const Step = Steps.Step;
+
+const steps = [{
+  title: '2 Minute Introduction',
+  icon: 'bell',
+  content: <PlugIntroduction />,
+  help: 'soemthing here to help'
+}, {
+  title: 'Find my Business',
+  icon: 'environment-o',
+  content: <Suppliers />,
+  help: 'soemthing here to help'
+}, {
+  title: 'Parent Company',
+  icon: 'team',
+  content: <Suppliers />,
+  help: 'soemthing here to help'
+}, {
+  title: 'Child Company',
+  icon: 'usergroup-add',
+  content: <Suppliers />,
+  help: 'soemthing here to help'
+},  {
+  title: 'Find my Suppliers',
+  icon: 'shopping-cart',
+  content: <Suppliers />,
+  help: 'soemthing here to help'
+}, {
+  title: 'Find My B2B Customers',
+  content: 'Second-content',
+  icon: 'shop',
+  content: <Suppliers />,
+  help: 'soemthing here to help'
+}, {
+  title: 'Find my Professional Services',
+  icon: 'user',
+  content: <Suppliers />,
+  help: 'soemthing here to help'
+}, {
+  title: 'Track my Competitors',
+  content: 'Second-content',
+  icon: 'meh-o',
+  content: <Suppliers />,
+  help: 'soemthing here to help'
+}, {
+  title: 'Join Business Associations',
+  icon: 'global',
+  content: <Suppliers />,
+  help: 'soemthing here to help'
+}, {
+  title: 'POS Systems',
+  icon: 'desktop',
+  content: <Services />,
+  help: 'soemthing here to help'
+}, {
+  title: 'Credit Card Processor',
+  icon: 'credit-card',
+  content: <Services />,
+  help: 'soemthing here to help'
+}, {
+  title: 'Complete',
+  icon: 'trophy',
+  content: <Services />,
+  help: 'soemthing here to help'
+}];
+
+const content = (
   <div>
-    <YouTube
-        videoId="MXKkygPGYi0"
-        opts={opts}
-      />
-  </div>),
-  AssignPhoneNumber: (
-  <div>
-    <YouTube
-        videoId="MXKkygPGYi0"
-        opts={opts}
-      />
-  </div>)
-  
-};
-export default class UserPanelTab extends Component {
+    <p>Content</p>
+    <p>Content</p>
+  </div>
+);
+
+class PlugBusiness extends React.Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      current: 0,
+    };
   }
-
-
+  next() {
+    const current = this.state.current + 1;
+    this.setState({ current });
+  }
+  prev() {
+    const current = this.state.current - 1;
+    this.setState({ current });
+  }
   render() {
+    const { current } = this.state;
     return (
       <LayoutWrapper>
+      
       <PageHeader>
           {<IntlMessages id="Panel.Merchant.Header" />}
         </PageHeader>
-      <Box>
+     <Box>
       
                 <Row gutter={24}>
                   <Col span="24">
-                    <Timeline>
-    <Timeline.Item dot={<Icon type="bell" style={{ fontSize: '16px' }} />} color="green">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.Start" />} </h3>
-        </Col>
-        <Col span="12"> 
-        
-        <YouTube
-        videoId="MXKkygPGYi0"
-        opts={opts}
-      />
-        
-        </Col>
-        <Col span="12">
-          notes to merchant is here. This address isso cool to find. I love it very much. notes to merchant is here. This address isso cool to find. I love it very much. notes to merchant is here. This address isso cool to find. I love it very much. 
-
-        </Col>
-      </Row>
+        <Steps  size="small" current={current}>
+          {steps.map(item => <Step key={item.title} icon={<Icon type={item.icon} />}  progressDot="true" description={item.description} />
+          
     
-    </Timeline.Item>
-    <Timeline.Item dot={<Icon type="environment-o" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.FindMyBusiness" />} <Popover content={whyContents.AssignPhoneNumber} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
+          )}
+        </Steps>
+        <h3 style={{ marginTop: 20, marginBottom: 20 }}> 
+        {steps[this.state.current].title} <Popover content={(<div>
+                {steps[this.state.current].help} 
+              </div>)} 
+            title={steps[this.state.current].title}  trigger="click">
+          <Button type="dashed" icon="question-circle-o"> Help</Button>
+          </Popover> 
+         </h3> 
+        <div className="steps-content">{steps[this.state.current].content}</div>
+        <div className="steps-action">
+        <InputGroup  style={{ marginBottom: '15px' }}>
+             <Row gutter={24}>
+            <Col span="8"></Col>
+            {
+           this.state.current <= 0
+             && 
+             <Col span="8"></Col>
+            }
+            
+            
+               
+                
 
-    </Popover>  </h3>
-        </Col>
-        <Col span="24">
-            <FindMyBusiness />
-        </Col>
-      </Row>
-    </Timeline.Item>
-    
-    <Timeline.Item dot={<Icon type="phone" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.AssignedPhoneNumber" />} <Popover content={whyContents.AssignPhoneNumber} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
-
-    </Popover> </h3>
-        </Col>
-        <Col span="24">
-            <AssignedPhoneNumber />
-        </Col>
-      </Row>
-    </Timeline.Item>
-
-    <Timeline.Item dot={<Icon type="edit" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.BusinessDetail" />} <Popover content={whyContents.BusinessDetail} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
-
-    </Popover> </h3>
-        </Col>
-        <Col span="24">
-            <BusinessDetail />
-        </Col>
-      </Row>
-    </Timeline.Item>
-     <Timeline.Item dot={<Icon type="picture" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.BusinessLogo" />} <Popover content={whyContents.AssignPhoneNumber} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
-
-    </Popover> </h3>
-        </Col>
-        <Col span="24">
-            <BusinessLogo />
-        </Col>
-      </Row>
-    </Timeline.Item>
-    
-    
-    <Timeline.Item dot={<Icon type="meh-o" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.Competitors" />} <Popover content={whyContents.AssignPhoneNumber} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
-
-    </Popover>  </h3>
-        </Col>
-
-        <Col span="24">
-            <Competitors />
-        </Col>
-      </Row>
-    </Timeline.Item>
-    
-   
-
-    <Timeline.Item dot={<Icon type="shopping-cart" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.Suppliers" />} <Popover content={whyContents.AssignPhoneNumber} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
-
-    </Popover>  </h3>
-        </Col>
-        <Col span="24">
-            <Suppliers />
-        </Col>
-      </Row>
-    </Timeline.Item>
-    
-    <Timeline.Item dot={<Icon type="shop" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.Customers" />} <Popover content={whyContents.AssignPhoneNumber} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
-
-    </Popover> </h3>
-        </Col>
-
-        <Col span="24">
-            <Customers />
-        </Col>
-      </Row>
-    </Timeline.Item>
-    
-     <Timeline.Item dot={<Icon type="team" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.BusinessAssociations" />} <Popover content={whyContents.AssignPhoneNumber} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
-
-    </Popover>  </h3>
-        </Col>
-
-        <Col span="24">
-            <BusinessAssociations />
-        </Col>
-      </Row>
-    </Timeline.Item>
-    <Timeline.Item dot={<Icon type="pie-chart" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.ProfessionalServices" />} <Popover content={whyContents.AssignPhoneNumber} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
-
-    </Popover> </h3>
-        </Col>
-
-        <Col span="24">
-            <ProfessionalServices />
-        </Col>
-      </Row>
-    </Timeline.Item>
-    
-    
-    <Timeline.Item dot={<Icon type="desktop" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.PosSystems" />} <Popover content={whyContents.AssignPhoneNumber} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
-
-    </Popover>  </h3>
-        </Col>
-
-        <Col span="24">
-            <PosSystems />
-        </Col>
-      </Row>
-    </Timeline.Item>
-    
-    
-    
-    
-    <Timeline.Item dot={<Icon type="credit-card" style={{ fontSize: '16px' }} />} color="red">
-      <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.CreditCardProcessor" />} <Popover content={whyContents.AssignPhoneNumber} title="Why do I need this?" trigger="click">
-      <Button type="dashed" icon="question-circle-o">Help!</Button>
-
-    </Popover>  </h3>
-        </Col>
-
-        <Col span="24">
-            <CreditCardProcessor />
-        </Col>
-      </Row>
-    </Timeline.Item>
-
-   
-    
-    
-    
-    <Timeline.Item dot={<Icon type="trophy" style={{ fontSize: '16px' }} />} color="red">
-    <Row gutter={16}>
-        <Col span="24">
-         <h3> {<IntlMessages id="Panel.Merchant.CompletePlugBusiness" />} </h3>
-        </Col>
-        <Col span="12"> 
-        
-        <YouTube
-        videoId="MXKkygPGYi0"
-        opts={opts}
-      />
-        
-        </Col>
-        <Col span="12">
-          notes to merchant is here. This address isso cool to find. I love it very much. notes to merchant is here. This address isso cool to find. I love it very much. notes to merchant is here. This address isso cool to find. I love it very much. 
-
-        </Col>
-      </Row>
-    </Timeline.Item>
-    
-
-  </Timeline>
-                  </Col>
+          {
+            this.state.current > 0
+            &&     
+                <Col span="8">
+                  <Button className="fullButton square" style={{ marginRight: 8 }} onClick={() => this.prev()}>
+                    Previous
+                  </Button>
+                </Col>
+               
+              
+              
+            
+          }
+          {
+            this.state.current < steps.length - 1
+            &&
+            <Col span="8">
+                  <Button className="fullButton square" type="primary" style={{ marginRight: 8 }} onClick={() => this.next()}>
+                    Next
+                  </Button>
+                </Col>
+          }
+          
+          {
+            this.state.current === steps.length - 1
+            &&
+            <Col span="8">
+                  <Button className="fullButton square" type="primary" style={{ marginRight: 8 }} 
+                  onClick={() => message.success('Processing complete!')}>
+                    Done
+                  </Button>
+                </Col>
+          }
+</Row>
+            </InputGroup>
+        </div>
+       </Col>
                   
                 </Row>
               
-        </Box>
+     </Box>
       </LayoutWrapper>
     );
   }
 }
+export default PlugBusiness;

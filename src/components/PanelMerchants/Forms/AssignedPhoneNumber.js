@@ -43,18 +43,18 @@ class CreateAddress extends Component {
   <Col md={24} sm={24} xs={24} >
       <ContentHolder>
         <InputGroup size="large" style={{ marginBottom: '15px' }}>
+        <Col span="24">
+             <h2 className="textLeft">305-892-9637 </h2>
+          </Col>
           <Col span="24">
             <Input placeholder="Your City" />
           </Col>
         </InputGroup>
         <InputGroup  style={{ marginBottom: '15px' }}>
         <Col span="16">
-             <h2 className="textLeft">305-892-9637 </h2>
-             
-             
           </Col>
           <Col span="8">
-            <Button size="small" type="primary" className="fullButton square">I'll Take It</Button>
+            <Button size="small" type="primary" className="fullButton square">Next</Button>
           </Col>
           
         </InputGroup>
