@@ -8,8 +8,4 @@ export default class path {
     //authentication URL
     static SIGNUP = path.baseUrl + "api/user/signup";
     static LOGIN = path.baseUrl + "api/signin";
-    static PROCESS = path.baseUrl + "api/process";
-    static DESIGNER_TEMPLATE = path.baseUrl + "api/template";
-    static DESIGNER_VIEW_TEMPLATE = path.baseUrl + "api/designerview";
-    static PROCESSTEMPLATE = path.baseUrl + "api/processtemplate/all";
 }
