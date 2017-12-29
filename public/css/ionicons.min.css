@@ -67,6 +67,19 @@
     width: 100%;
     overflow: hidden;
 }
+.capitalize{
+   text-transform: capitalize;
+}
+
+.lowercase{
+   text-transform: lowercase;
+}
+
+
+.uppercase{
+   text-transform: uppercase;
+}
+
 
 .imageFullWidth{
   width: 100%;
@@ -85,4 +98,108 @@
 
 .ant-carousel .slick-slide h3 {
   color: #fff;
+}
+
+.card-image-holder{
+  width: 100%;
+  height: 100px;
+   overflow: hidden;
+}
+.card-image{
+  width: 100%;
+  min-height: 100px;
+  max-height: 100px;
+ 
+}
+
+.card-intro-holder{
+  width: 100%;
+  border-left: 1px #e2e2e2 solid;
+  border-right: 1px #e2e2e2 solid;
+  border-bottom: 1px #e2e2e2 solid;
+  height: 50px;
+  padding: 5px;
+}
+
+.card-info-holder-background{
+  width: 100%;
+  min-height: 100px;
+  max-height: 100px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #333;
+  margin-top: -150px;
+  margin-left: 0px;
+  position: absolute;
+  opacity: 0.8;
+  display: none;
+
+
+}
+.card-info-holder{
+  width: 100%;
+  min-height: 100px;
+  max-height: 100px;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: -150px;
+  margin-left: 0px;
+  position: absolute;
+  display: none;
+
+
+}
+
+.card-info-holder:hover, .card-info-holder-background:hover {
+  display: block;
+}
+.strong {
+  font-weight: bolder;
+}
+
+.small-title{
+  font-size: 10px;
+}
+
+.blue{
+  color: #29abe2;
+}
+.pink{
+  color: #ff7bac;
+}
+.green{
+  color: #009245;
+}
+.red{
+  color: #c1272d;
+}
+.orange{
+  color: #f7931e;
+}
+
+.card-info-button {
+  background-color: #fff;
+  color: #b1b1b1;
+  border: 1px dashed #e2e2e2;
+ 
+}
+
+
+.card-shop-button {
+  background-color: #d1d1d1;
+  color: #999;
+  border: 1px solid #d1d1d1;
+}
+
+
+.card-info-button, .card-shop-button {
+  margin-top: 0px;
+  text-align: center;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  cursor: pointer;
 }
