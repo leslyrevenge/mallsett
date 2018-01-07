@@ -27,12 +27,19 @@ import { Row, Col } from 'antd';
 const Step = Steps.Step;
 
 const steps = [{
+  title: 'Login or Register',
+  icon: 'lock',
+  content: 'add login / register form here',
+  description: 'Please login or register so you can add your business',
+  help: 'soemthing here to help'
+},
+{
   title: '2 Minute Introduction',
   icon: 'bell',
   content: <PluggIntroduction />,
   description: 'Watch this short video and learn more about plugging your business with other businesses and consumers.',
   help: 'soemthing here to help'
-}, {
+},{
   title: 'Find my Business',
   icon: 'environment-o',
   content: <FindMyBusiness />,

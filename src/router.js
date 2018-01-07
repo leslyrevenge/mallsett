@@ -26,7 +26,7 @@ const PublicRoutes = ({ history, isLoggedIn }) => {
         <Route
           exact
           path={'/'}
-          component={asyncComponent(() => import('./containers/SignUp/'))}
+          component={asyncComponent(() => import('./containers/homePage'))}
         />
         <Route
           exact
@@ -37,6 +37,16 @@ const PublicRoutes = ({ history, isLoggedIn }) => {
           path="/dashboard"
           component={App}
           isLoggedIn={isLoggedIn}
+        />
+        <RestrictedRoute
+          path="/homePage"
+          component={App}
+          isLoggedIn={isLoggedIn}
+        />
+        <RestrictedRoute
+          path="/add-products-and-services"
+          isLoggedIn={isLoggedIn}
+          component={asyncComponent(() => import('./containers/merchantPanel/addProducts'))}
         />
       </div>
     </ConnectedRouter>

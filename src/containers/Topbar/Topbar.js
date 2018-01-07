@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Layout } from 'antd';
-import appActions from '../../redux/app/actions';
 import TopbarWrapper from './topbar.style';
-import { getCurrentTheme } from '../ThemeSwitcher/config';
-import { themeConfig } from '../../config';
 import Logo from '../../components/utility/logo';
 import { Link } from 'react-router-dom';
 import TopbarAddressSelector from '../../components/topbar/topbarAddressSelector'; 
@@ -16,15 +13,13 @@ import {
 } from '../../components/topbar';
 
 const { Header } = Layout;
-const { toggleCollapsed } = appActions;
 
 class Topbar extends Component {
   render() {
     const { toggleCollapsed } = this.props;
-    const customizedTheme = getCurrentTheme('topbarTheme', themeConfig.theme);
     const collapsed = this.props.collapsed && !this.props.openDrawer;
     const styling = {
-      background: customizedTheme.backgroundColor,
+      background: '#fff',
       position: 'fixed',
       width: '100%',
       height: 70
@@ -59,10 +54,6 @@ class Topbar extends Component {
             </Link>
             
             </li>
-            <li className="isoSearch navList">
-              <TopbarUserSessions />
-             
-            </li>
             <li
               className="isoUser"
             >
@@ -78,7 +69,6 @@ class Topbar extends Component {
 export default connect(
   state => ({
     ...state.App.toJS(),
-  }),
-  { toggleCollapsed }
+  })
 )(Topbar);
 

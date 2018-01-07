@@ -1,7 +1,40 @@
 
 {
-  "sidebar.blankPage": "Blank Page",
-  "page.signInTitle": "Isomorphic",
+  "sidebar.businessOverview": "Dashboard",
+  "sidebar.supplies": "Suppliers",
+  "sidebar.generalSettings": "My Business",
+  "sidebar.productPage": "Products & Marketing",
+  "sidebar.onDemand": "Provide onDemand",
+  "sidebar.professionalAssociation": "My Associations",
+  
+  
+  "sidebar.businessLocations": "Business Locations",
+  
+  "sidebar.deliveryService": "Delivery Services",
+  
+  "sidebar.addProducts": "Add Proucts",
+  "sidebar.finance": "Finance",
+  
+  "sidebar.humanResource": "Human Resource",
+  "sidebar.salesMarketing": "Marketing",
+  "sidebar.promotion": "Promotion",
+  "sidebar.customerService": "Customer Service",
+  "sidebar.sales": "Sales and Marketing",
+  "sidebar.researchAndDevelopment": "Research and Development",
+  "sidebar.production": "Production",
+  "sidebar.help": "Help & Tutorials",
+  "sidebar.events": "Fun & Events",
+   "sidebar.businessContacts": "Message and Contacts",
+  "sidebar.profileSettings": "Profile and Settings",
+  "sidebar.operations": "Operations",
+  "sidebar.education": "Education",
+  "sidebar.affiliations": "Affiliations",
+  "sidebar.businessNews": "Industry News",
+  "sidebar.productWholesale": "Wholesale Products",
+  "sidebar.b2bService": "B2B Services",
+  "sidebar.b2bEquipment": "Business Equipments",
+  "sidebar.b2bLodging": "Lodging and Booking",
+  "page.signInTitle": "plugg.me",
   "page.signInRememberMe": "Remember me",
   "page.signInButton": "Sign in",
   "page.signInPreview":"username: demo   password: demodemo   or just click on any button.",

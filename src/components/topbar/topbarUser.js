@@ -39,6 +39,11 @@ class TopbarUser extends Component {
          <div className="isoImgWrapper">
           <img alt="user" src={userpic} />
           <span className="userActivity online" />
+          
+          
+        </div>
+        <div>
+        Login / Register
         </div>
         <TopbarModal
           title="User Panel Modal"

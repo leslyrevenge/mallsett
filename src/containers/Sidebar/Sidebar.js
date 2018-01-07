@@ -13,6 +13,8 @@ import LogoLight from '../../components/utility/logoLight';
 import { rtl } from '../../config/withDirection';
 import { getCurrentTheme } from '../ThemeSwitcher/config';
 import { themeConfig } from '../../config';
+const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
 
 const { Sider } = Layout;
 const {
@@ -21,6 +23,185 @@ const {
   changeCurrent,
   toggleCollapsed,
 } = appActions;
+
+const sidebarPages = [
+  {
+    key: 'productPage',
+    link: 'productPage',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ion-tshirt-outline',
+    position: 1
+  }, {
+    key: 'deliveryService',
+    link: 'deliveryService',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'model-s',
+    position: 1
+  }, {
+    key: 'onDemand',
+    link: 'onDemand',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ion-model-s',
+    position: 1
+  },{
+    key: 'schedule',
+    link: 'schedule',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'clock',
+    position: 1
+  }, {
+    key: 'marketing',
+    link: 'marketing',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'speakerphone',
+    position: 1
+  }, {
+    key: 'couponing',
+    link: 'couponing',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'calculator',
+    position: 1
+  }, {
+    key: 'financing',
+    link: 'financing',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'cash',
+    position: 1
+  },{
+    key: 'staffs',
+    link: 'staffs',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'bowtie',
+    position: 1
+  }, {
+    key: 'authorizations',
+    link: 'authorizations',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'key',
+    position: 1
+  },{
+    key: 'customers',
+    link: 'customers',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ios-people',
+    position: 1
+  }, {
+    key: 'generalInfo',
+    link: 'shoppingService',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ios-cart-outline',
+    position: 1
+  }, {
+    key: 'dashboard',
+    link: 'dashboard',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ios-cart-outline',
+    position: 1
+  }, {
+    key: 'dashboard',
+    link: 'dashboard',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ios-speedometer-outline',
+    position: 1
+  }, {
+    key: 'Businesses',
+    link: 'dashboard',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ios-briefcase-outline',
+    position: 1
+  }, {
+    key: 'Suppliers',
+    link: 'dashboard',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'earth',
+    position: 1
+  }, {
+    key: 'Message',
+    link: 'dashboard',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'earth',
+    position: 1
+  }, {
+    key: 'issues',
+    link: 'issues',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'earth',
+    position: 1
+  }, {
+    key: 'meetings',
+    link: 'meetings',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ios-people',
+    position: 1
+  }, {
+    key: 'staffFunEvents',
+    link: 'meetings',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ion-ios-wineglass',
+    position: 1
+  }, {
+    key: 'teleCommunication',
+    link: 'meetings',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ios-football',
+    position: 1
+  }, {
+    key: 'ideas',
+    link: 'ideas',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ios-lightbulb-outline',
+    position: 1
+  }, {
+    key: 'localMusician',
+    link: 'ideas',
+    style: 'submenuColor',
+    iconStyle: 'ion',
+    icon: 'ios-musical-notes',
+    position: 1
+  }
+];
+
+class SideBarPages extends Component {
+    render() {
+      return(
+        <div>
+  {sidebarPages.map(page => {
+              <Menu.Item key={page.key}>
+                <Link to={`{page.key}/{page.style}`}>
+                  <span className="isoMenuHolder" style={page.key}>
+                    <i className= {page.icon}/>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.{page.key}" /> something
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+            })}
+            </div>
+    )}
+    
+}
 
 class Sidebar extends Component {
   constructor(props) {
@@ -124,16 +305,236 @@ class Sidebar extends Component {
               onOpenChange={this.onOpenChange}
               className="isoDashboardMenu"
             >
-              <Menu.Item key="blankPage">
-                <Link to={`${url}/blankPage`}>
+              <Menu.Item key="businessOverview">
+                <Link to={`${url}/businessOverview`}>
                   <span className="isoMenuHolder" style={submenuColor}>
-                    <i className="ion-document" />
+                    <i className="ion-speedometer" />
                     <span className="nav-text">
-                      <IntlMessages id="sidebar.blankPage" />
+                      <IntlMessages id="sidebar.businessOverview" />
                     </span>
                   </span>
                 </Link>
               </Menu.Item>
+              <SubMenu
+                key="purchaseFromSuppliers"
+                title={
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <i className="ion-bag" />
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.supplies" />
+                    </span>
+                  </span>
+                }
+              >
+                <Menu.Item key="supplies">
+                  <Link to={`${url}/buy-wholesale`}>
+                    <span className="isoMenuHolder" style={submenuColor}>
+                      <span className="nav-text">
+                        <IntlMessages id="sidebar.productWholesale" />
+                      </span>
+                    </span>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="b2bService">
+                  <Link to={`${url}/business-2-business-services`}>
+                    <span className="isoMenuHolder" style={submenuColor}>
+                      <span className="nav-text">
+                        <IntlMessages id="sidebar.b2bService" />
+                      </span>
+                    </span>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="b2bEquipment">
+                  <Link to={`${url}/business-2-business-equipments`}>
+                    <span className="isoMenuHolder" style={submenuColor}>
+                      <span className="nav-text">
+                        <IntlMessages id="sidebar.b2bEquipment" />
+                      </span>
+                    </span>
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="b2bLodging">
+                  <Link to={`${url}/business-2-business-lodging`}>
+                    <span className="isoMenuHolder" style={submenuColor}>
+                      <span className="nav-text">
+                        <IntlMessages id="sidebar.b2bLodging" />
+                      </span>
+                    </span>
+                  </Link>
+                </Menu.Item>
+              </SubMenu >
+              
+              <SubMenu
+                key="generalSettings"
+                title={
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <i className="ion-ios-briefcase-outline" />
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.generalSettings" />
+                    </span>
+                  </span>
+                }
+              >
+              <Menu.Item key="customerService">
+                <Link to={`${url}/customer-service`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.customerService" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="finance">
+                <Link to={`${url}/accounting-finance`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.finance" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="humanResource">
+                <Link to={`${url}/human-resource`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.humanResource" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="profileSettings">
+                <Link to={`${url}/business-profile-settings`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.profileSettings" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="businessLocations">
+                <Link to={`${url}/businessLocations`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.businessLocations" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              </SubMenu >
+              
+                <SubMenu
+                key="productPage"
+                title={
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <i className="ion-tshirt-outline" />
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.productPage" />
+                    </span>
+                  </span>
+                }
+              >
+              
+              <Menu.Item key="addProducts">
+                <Link to={`/add-products-and-services`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.addProducts" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="deliveryService">
+                <Link to={`${url}/add-delivery-services`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.deliveryService" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              
+              <Menu.Item key="salesMarketing">
+                <Link to={`${url}/sales-and-marketing`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.salesMarketing" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="promotion">
+                <Link to={`${url}/discount-promotion`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.promotion" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              </SubMenu>
+              <SubMenu
+                key="professionalAssociation"
+                title={
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <i className="ion-ios-wineglass" />
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.professionalAssociation" />
+                    </span>
+                  </span>
+                }
+              >
+             
+              <Menu.Item key="businessNews">
+                <Link to={`${url}/business-news`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.businessNews" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="affiliations">
+                <Link to={`${url}/business-affiliations`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.affiliations" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="education">
+                <Link to={`${url}/education`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.education" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              
+          
+              <Menu.Item key="researchAndDevelopment">
+                <Link to={`${url}/events`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.events" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+               </SubMenu>
+              <Menu.Item key="help">
+                <Link to={`${url}/plugg-help-and-tutorials`}>
+                  <span className="isoMenuHolder" style={submenuColor}>
+                    <i className="ion-help" />
+                    <span className="nav-text">
+                      <IntlMessages id="sidebar.help" />
+                    </span>
+                  </span>
+                </Link>
+              </Menu.Item>
+              
+              
             </Menu>
           </Scrollbars>
         </Sider>
