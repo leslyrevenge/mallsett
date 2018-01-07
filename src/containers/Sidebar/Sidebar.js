@@ -434,8 +434,8 @@ class Sidebar extends Component {
                 }
               >
               
-              <Menu.Item key="addProducts">
-                <Link to={`/add-products-and-services`}>
+              <Menu.Item key="addProduct">
+                <Link to={`${url}/add-products`}>
                   <span className="isoMenuHolder" style={submenuColor}>
                     <span className="nav-text">
                       <IntlMessages id="sidebar.addProducts" />

@@ -43,11 +43,6 @@ const PublicRoutes = ({ history, isLoggedIn }) => {
           component={App}
           isLoggedIn={isLoggedIn}
         />
-        <RestrictedRoute
-          path="/add-products-and-services"
-          isLoggedIn={isLoggedIn}
-          component={asyncComponent(() => import('./containers/merchantPanel/addProducts'))}
-        />
       </div>
     </ConnectedRouter>
   );

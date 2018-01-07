@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import LayoutContentWrapper from '../../components//utility/layoutWrapper';
-import LayoutContent from '../../components//utility/layoutContent';
+import LayoutContentWrapper from '../../../components//utility/layoutWrapper';
+import LayoutContent from '../../../components//utility/layoutContent';
 import { Tabs } from 'antd';
-import FrontPageMerchantCard from '../../components//PanelMerchants/Forms/FrontPageMerchantCard';
-import BuildYourMall from '../BuildYourMall';
-import ShopYourMall from '../ShopYourMall';
-import CheckOut from '../CheckOut';
-import Input, { InputGroup } from '../../components//uielements/input';
-import IntlMessages from '../../components//utility/intlMessages';
+import FrontPageMerchantCard from '../../../components//PanelMerchants/Forms/FrontPageMerchantCard';
+import StepsAddProducts from './stepsAddProducts';
+import ShopYourMall from '../../ShopYourMall';
+import CheckOut from '../../CheckOut';
+import Input, { InputGroup } from '../../../components//uielements/input';
+import IntlMessages from '../../../components//utility/intlMessages';
 import { Steps, Button, message, Icon, Cascader, Pagination } from 'antd';
 import { Row, Col } from 'antd';
-import Select, { SelectOption } from '../../components//uielements/select';
+import Select, { SelectOption } from '../../../components//uielements/select';
 
 const Option = SelectOption;
 
@@ -190,7 +190,7 @@ export default class extends Component {
             </Row>
             <Row gutter={8}  style={{ marginTop: '15px'}}>
               <Col span="24">
-                <BuildYourMall />
+                <StepsAddProducts />
               </Col>
             </Row>
             <Row gutter={8}  style={{ marginTop: '15px'}}>
