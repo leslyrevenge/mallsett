@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ProductNav from '../navigation/ProductNav';
-import FormSections from '../forms/formSections';
+import FormGroup from '../forms/formGroup';
 import { 
   Row, 
   Col
@@ -11,7 +11,7 @@ export default class  extends Component {
     return (
       <Row gutter={24}>
         <Col span="10">
-          <FormSections />
+          <FormGroup />
         </Col>
         <Col span="14">
           <ProductNav />

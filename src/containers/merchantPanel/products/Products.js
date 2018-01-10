@@ -6,7 +6,8 @@ import {
 } from 'antd';
 
 import ProductPage from './pages/ProductPage';
-import SectionPage from './pages/SectionPage';
+import GroupPage from './pages/GroupPage';
+import SizePage from './pages/SizePage';
 
 import LayoutContentWrapper from '../../../components//utility/layoutWrapper';
 import LayoutContent from '../../../components//utility/layoutContent';
@@ -15,23 +16,23 @@ const TabPane = Tabs.TabPane;
 
 const steps = [
   {
-  title: 'Add Products',
+  title: 'Manage Products',
   noIcon: 'plus-square-o',
   content: <ProductPage />,
   description: 'Watch this short video and learn more about plugging your business with other businesses and consumers.',
   help: 'soemthing here to help',
   key: '1'
 }, {
-  title: 'Sections',
+  title: 'Product Grouping',
   noIcon: 'layout',
-  content:  <SectionPage />,
+  content:  <GroupPage />,
   description: '',
   help: 'Groceries',
   key: '3'
 }, {
   title: 'Sizes',
   noIcon: 'environment-o',
-  content: 'form goes here',
+  content: <SizePage />,
   description: '',
   help: 'Groceries',
   key: '11'
@@ -71,14 +72,14 @@ const steps = [
   help: 'soemthing here to help',
   key: '7'
 }, {
-  title: 'Date Range',
+  title: 'Date & Time Range',
   noIcon: 'calendar',
   content: 'form goes here',
   description: '',
   help: 'soemthing here to help',
   key: '8'
 }, {
-  title: 'Time Range',
+  title: 'Add on Options',
   noIcon: 'clock-circle-o',
   content: 'form goes here',
   description: '',
@@ -102,7 +103,7 @@ class BuildYourMall extends Component {
         <LayoutContent>
             <Row gutter={24} style={{ marginTop: '0px'}}>
               <Col span="24">
-                <Tabs defaultActiveKey='1'>
+                <Tabs defaultActiveKey='1' size='small'>
                   {steps.map(item =><TabPane key={item.key} tab={<span>{item.title}</span>} >
                   {item.content}
                   </TabPane> )}

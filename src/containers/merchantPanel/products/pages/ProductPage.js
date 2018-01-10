@@ -10,7 +10,7 @@ export default class  extends Component {
     return (
       <Row gutter={12}>
         <Col span="12">
-          form
+          form 
         </Col>
         <Col span="12">
           <ProductNav />
