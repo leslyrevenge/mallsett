@@ -18,7 +18,7 @@ export default class extends React.Component {
     return (
       <div>
         <Tabs
-          defaultActiveKey="1"
+          defaultActiveKey="2"
           tabPosition='right'
           size='small'
         >

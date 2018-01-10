@@ -9,7 +9,9 @@ import IntlMessages from '../../../../components/utility/intlMessages';
 import { 
   Row, 
   Button,
-  Collapse
+  Collapse,
+  Popover,
+  Icon
 } from 'antd';
 
 const Panel = Collapse.Panel;
@@ -21,16 +23,31 @@ export default class  extends Component {
     return (
       <Row gutter={24}>
       <Collapse bordered={false} defaultActiveKey={['1']}>
-        <Panel header={<IntlMessages id="form.group.header.1" />}  key="1" style={FormWrapper.collapsed}>
-          <p style={{marginBottom: 15}}><IntlMessages id="form.group.message.1" /></p>
+        <Panel header={<IntlMessages id="form.part.group.header.1.title" />}  key="1" style={FormWrapper.collapsed}>
+          <Popover content={ 
+              <div>
+                {<IntlMessages id="form.part.group.header.1.popover.content"/>} 
+              </div>
+            } title={<IntlMessages id="form.part.group.header.1.popover.title" />}  trigger="click">
+            <p style={{marginBottom: 15}}><Icon type="question-circle-o" /> <IntlMessages id= "form.part.group.header.1.message" /></p>
+           </Popover>
+          
           <GroupPart1 />
+          <GroupPart5 />
         </Panel>
-        <Panel header={<IntlMessages id="form.group.header.2" />}  key="2" style={FormWrapper.collapsed}>
-          <p style={{marginBottom: 15}}><IntlMessages id="form.group.message.2" /></p>
+        <Panel header={<IntlMessages id="form.part.group.header.2.title" />}  key="2" style={FormWrapper.collapsed}>
+          
+          <Popover content={ 
+              <div>
+                {<IntlMessages id="form.part.group.header.2.popover.content" />} 
+              </div>
+            } title={<IntlMessages id="form.part.group.header.2.popover.title" />}  trigger="click">
+            <p style={{marginBottom: 15}}><Icon type="question-circle-o" /> <IntlMessages id= "form.part.group.header.2.message" /></p>
+           </Popover>
           <GroupPart2 />
           <GroupPart3 />
           <GroupPart4 />
-          <GroupPart5 />
+          
         </Panel>
       </Collapse>
        <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }}>Submit</Button>

@@ -28,7 +28,7 @@ const steps = [
   content:  <GroupPage />,
   description: '',
   help: 'Groceries',
-  key: '3'
+  key: '2'
 }, {
   title: 'Sizes',
   noIcon: 'environment-o',
@@ -103,7 +103,7 @@ class BuildYourMall extends Component {
         <LayoutContent>
             <Row gutter={24} style={{ marginTop: '0px'}}>
               <Col span="24">
-                <Tabs defaultActiveKey='1' size='small'>
+                <Tabs defaultActiveKey='2' size='small'>
                   {steps.map(item =><TabPane key={item.key} tab={<span>{item.title}</span>} >
                   {item.content}
                   </TabPane> )}

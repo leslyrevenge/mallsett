@@ -63,5 +63,46 @@
   "Panel.Merchant.CompletePlugBusiness": "Next Steps",
   "Panel.Merchant.Profile": "Business Profile",
   
-  "uiElements.tags.MerchantCategoryInputTag": "add tag"
+  "uiElements.tags.MerchantCategoryInputTag": "add tag",
+  
+  
+  "form.part.group.main.1" : "Product Group",
+  "form.part.group.main.2" : "Product Grouping",
+  
+  "form.part.group.header.1.title": "Basic Product Grouping",
+  "form.part.group.header.1.message": "click here for help with basic product grouping.",
+  "form.part.group.header.1.popover.title" : "Basic",
+  "form.part.group.header.1.popover.content" : "content here ",
+  
+  
+  "form.part.group.header.2.title": "Advanced Product Grouping",
+  "form.part.group.header.2.message": "click here for help with advance product grouping.",
+  "form.part.group.header.2.popover.title" : "Advanced ",
+  "form.part.group.header.2.popover.content" : "content here ",
+  
+  
+  "form.part.group.name" : "Name",
+  "form.part.group.name.popover.title": " Name",
+  "form.part.group.name.popover.content" : "Name content here ",
+  
+  "form.part.group.description" : "Description",
+  "form.part.group.description.popover.title": " Description",
+  "form.part.group.description.popover.content" : "Description content here ",
+  
+  "form.part.group.groupImage" : "Image",
+  "form.part.group.groupImage.popover.title": " Image",
+  "form.part.group.groupImage.popover.content" : " Image content here ",
+  
+    "form.part.group.overide" : "Overide Products",
+  "form.part.group.overide.popover.title": " Overide Products",
+  "form.part.group.overide.popover.content" : "Overide content here ",
+  
+    "form.part.group.navigate" : "Navigate Group",
+  "form.part.group.navigate.popover.title": " Navigate Group",
+  "form.part.group.navigate.popover.content" : "Navigate content here ",
+  
+    "form.part.group.published" : "Published Group",
+  "form.part.group.published.popover.title": " Published Group",
+  "form.part.group.published.popover.content" : "Published content here "
+  
 }

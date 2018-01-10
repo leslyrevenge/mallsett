@@ -43,12 +43,13 @@ export default class  extends Component {
               onChange={this.handleOverideriderChange} 
               style={{ marginBottom: 15, marginTop: 15  }}
             /> <Popover content={ 
-              <div>
-                <p>Content</p>
-                <p>Content</p>
-              </div>
-            } title="Title" trigger="click">
-            Overide Products: <Icon type="question-circle-o" />   </Popover>    
+            
+                 <IntlMessages id="form.part.group.overide.popover.content" />
+            
+            } title= {<div> 
+              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.overide.popover.title" />
+              </div> }  trigger="click">
+              <IntlMessages id="form.part.group.overide" />  :  <Icon type="question-circle-o" />   </Popover>    
             </Col>
          { /* end     overide products  */ }
          { /* start   navigate sections */ }
@@ -60,12 +61,11 @@ export default class  extends Component {
               onChange={this.handleNaviagionChange} 
               style={{ marginBottom: 15,  marginTop: 15  }}
             /> <Popover content={ 
-              <div>
-                <p>Content</p>
-                <p>Content</p>
-              </div>
-            } title="Title" trigger="click">
-            Navigate Section: <Icon type="question-circle-o" />   </Popover>    
+              <IntlMessages id="form.part.group.navigate.popover.content" />
+            } title={<div> 
+              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.navigate.popover.title" />
+              </div> } trigger="click">
+            <IntlMessages id="form.part.group.navigate" /> : <Icon type="question-circle-o" />   </Popover>    
             </Col>
          { /* end     navigate sections  */ }
          { /* start   publish sections */ }
@@ -78,12 +78,11 @@ export default class  extends Component {
               onChange={this.handlePublishedChange} 
               style={{ marginBottom: 15,  marginTop: 15  }}
             /> <Popover content={ 
-              <div>
-                <p>Content</p>
-                <p>Content</p>
-              </div>
-            } title="Title" trigger="click">
-            Publish Section: <Icon type="question-circle-o" />   </Popover>    
+              <IntlMessages id="form.part.group.published.popover.content" />
+            } title={<div> 
+              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.published.popover.title" />
+              </div> } trigger="click">
+            <IntlMessages id="form.part.group.published" /> : <Icon type="question-circle-o" />   </Popover>    
             </Col>
             
          { /* end     publish sections */ }
