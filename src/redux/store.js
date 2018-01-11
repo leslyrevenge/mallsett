@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import reducers from '../redux/reducers';
 import rootSaga from '../redux/sagas';
-
+import auth from "./auth/reducer"
 const history = createHistory();
 const sagaMiddleware = createSagaMiddleware();
 const routeMiddleware = routerMiddleware(history);
@@ -14,6 +14,7 @@ const middlewares = [thunk, sagaMiddleware, routeMiddleware];
 const store = createStore(
   combineReducers({
     ...reducers,
+    auth:auth,
     router: routerReducer
   }),
   compose(applyMiddleware(...middlewares))

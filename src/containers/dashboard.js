@@ -11,7 +11,7 @@ import IntlMessages from '../components/utility/intlMessages';
 import { Steps, Button, message, Icon, Popover, Pagination } from 'antd';
 import { Row, Col } from 'antd';
 import Select, { SelectOption } from '../components/uielements/select';
-
+import { connect } from 'react-redux';
 const Option = SelectOption;
 
 const children = [];
@@ -20,8 +20,17 @@ for (let i = 10; i < 36; i++) {
 }
 const TabPane = Tabs.TabPane;
 
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+}
+class Dashboard extends Component {
+  componentDidMount() {
+    if (!this.props.auth.isAuthenticated) this.props.history.push("/signin")
 
-export default class extends Component {
+  }
+
   render() {
     return (
       <LayoutContentWrapper>
@@ -49,3 +58,4 @@ export default class extends Component {
     );
   }
 }
+export default connect(mapStateToProps)(Dashboard)

@@ -1,95 +1,126 @@
-import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import Input from '../../components/uielements/input';
-import Checkbox from '../../components/uielements/checkbox';
-import Button from '../../components/uielements/button';
-import authAction from '../../redux/auth/actions';
-import IntlMessages from '../../components/utility/intlMessages';
-import SignInStyleWrapper from './signin.style';
-
-const { login } = authAction;
-
-class SignIn extends Component {
-  state = {
-    redirectToReferrer: false,
-  };
-  componentWillReceiveProps(nextProps) {
-    if (
-      this.props.isLoggedIn !== nextProps.isLoggedIn &&
-      nextProps.isLoggedIn === true
-    ) {
-      this.setState({ redirectToReferrer: true });
-    }
-  }
-  handleLogin = () => {
-    const { login } = this.props;
-    login();
-    this.props.history.push('/dashboard');
-  };
-  render() {
-    const from = { pathname: '/dashboard' };
-    const { redirectToReferrer } = this.state;
-
-    if (redirectToReferrer) {
-      return <Redirect to={from} />;
-    }
-    return (
-
-          <div className="isoLoginContent">
-            <div className="isoLogoWrapper">
-              <Link to="/dashboard">
-                <IntlMessages id="page.signInTitle" />
-              </Link>
-            </div>
-
-            <div className="isoSignInForm">
-              <div className="isoInputWrapper">
-                <Input size="large" placeholder="Username" />
-              </div>
-
-              <div className="isoInputWrapper">
-                <Input size="large" type="password" placeholder="Password" />
-              </div>
-
-              <div className="isoInputWrapper isoLeftRightComponent">
-                <Checkbox>
-                  <IntlMessages id="page.signInRememberMe" />
-                </Checkbox>
-                <Button type="primary" onClick={this.handleLogin}>
-                  <IntlMessages id="page.signInButton" />
-                </Button>
-              </div>
-
-              <p className="isoHelperText">
-                <IntlMessages id="page.signInPreview" />
-              </p>
-
-              <div className="isoInputWrapper isoOtherLogin">
-                <Button onClick={this.handleLogin} type="primary btnFacebook">
-                  <IntlMessages id="page.signInFacebook" />
-                </Button>
-                <Button onClick={this.handleLogin} type="primary btnGooglePlus">
-                  <IntlMessages id="page.signInGooglePlus" />
-                </Button>
-              </div>
-              <div className="isoCenterComponent isoHelperWrapper">
-                <Link to="" className="isoForgotPass">
-                  <IntlMessages id="page.signInForgotPass" />
-                </Link>
-                <Link to="">
-                  <IntlMessages id="page.signInCreateAccount" />
-                </Link>
-              </div>
-            </div>
-          </div>
-    );
+import React, { Component } from "react";
+import axios from "axios"
+import apiUrl from "../../config"
+import classnames from "classnames";
+import auth from "../../redux/auth/reducer"
+import { connect } from "react-redux"
+import { Link } from "react-router-dom"
+import jwt from "jsonwebtoken"
+import { setCurrentUser } from "../../redux/auth/actions"
+import setAuthorizationToken from "../../auth"
+import { bindActionCreators } from "redux";
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
   }
 }
+function matchDispatchToProps(dispatch) {
+  return bindActionCreators({
+    setCurrentUser: setCurrentUser
+  }, dispatch)
+}
+class Signin extends Component {
 
-export default connect(
-  state => ({
-    isLoggedIn: state.Auth.get('idToken') !== null ? true : false,
-  }),
-  { login }
-)(SignIn);
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+      error: "",
+      isLoading: false
+    }
+  }
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) this.props.history.push("/dashboard")
+  }
+
+  typing(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+
+  }
+
+  submit(e) {
+    e.preventDefault();
+    console.log("'submited")
+    this.setState({ isLoading: true, error: {} })
+    setTimeout(function () {
+      axios.post(`${apiUrl.apiUrl}/api/login`, this.state).then((res) => {
+
+        if (res.data.token) {
+          var token = res.data.token;
+          localStorage.setItem("jwToken", token);
+          setAuthorizationToken(token);
+          // var url = window.location.pathname;
+          this.props.history.push('/dashboard')
+        }
+        this.setState({ error: res.data, isLoading: false });
+      }).catch((err) => { this.setState({ isLoading: false,error:{network:"An error has occured"} }); console.log(err) });
+    }.bind(this), 1000)
+  }
+  render() {
+    return (
+      <div className="row" style={{ margin: "100px 0px" }}>
+        <div className="col-sm-4 col-sm-offset-4">
+          < div className={classnames("slideInDown", "animated")}>
+
+            <div className="row" style={{ margin: "0px" }}>
+              <div className="    ">
+                <div className="box">
+                  <form action="" method="POST" onSubmit={this.submit.bind(this)}>
+                    <div className="form-group" >
+
+                    </div>
+                    <div className={classnames("form-group", this.state.error.email ? "has-error" : null)}>
+                      <input type="email" name="email" onChange={this.typing.bind(this)} className="form-control" placeholder="Email" />
+                    </div>
+                    {this.state.error.email ?
+                      <div className="form-group has-error">
+                        <p className="text-danger">{this.state.error.email}</p>
+                      </div>
+                      : null}
+                    <div className={classnames("form-group", this.state.error.password ? "has-error" : null)}>
+                      <input type="password" name="password" onChange={this.typing.bind(this)} className="form-control" placeholder="password" />
+                    </div>
+
+                    {this.state.error.password ?
+                      <div className="form-group has-error">
+                        <p className="text-danger">{this.state.error.password}</p>
+                      </div>
+                      : null}
+                    {this.state.error.network ?
+                      <div className="form-group has-error">
+                        <p className="text-danger text-center">{this.state.error.network}</p>
+                      </div>
+                      : null}
+                    <div className="form-group">
+                      <p>Not a user? <Link to="/register">click here to register</Link></p>
+                    </div>
+
+
+                    <button type="submit" className={classnames("btn", "btn-primary",
+                      "btn-block", this.state.isLoading ? "disabled" : null)}> {this.state.isLoading ?
+                        <i className="fa fa-spinner fa-spin"></i>
+                        : "Signin"}</button>
+
+
+
+                  </form>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    )
+  }
+
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(Signin);

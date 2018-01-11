@@ -4,6 +4,13 @@ import {
     LOGOUT, LOGOUT_SUCCESS, LOGOUT_FAILURE
 } from '../constants'
 
+import { SET_CURRENT_USER } from '../constants'
+
+export const setCurrentUser = (user) => {
+    return {
+        type: SET_CURRENT_USER, payload: user
+    }
+}
 export default class AuthActions {
 
     static signup(user) {

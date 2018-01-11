@@ -1,37 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { ConnectedRouter } from 'react-router-redux';
 import { connect } from 'react-redux';
-
 import App from './containers/App/App';
-import asyncComponent from './helpers/AsyncFunc';
+import Signin from "./containers/Page/signin";
+import Signup from "./containers/Page/signup";
+// import asyncComponent from './helpers/AsyncFunc';
+import Homepage from "./containers/homePage"
 
-const RestrictedRoute = ({ component: Component, ...rest, isLoggedIn }) =>
-  <Route
-    {...rest}
-    render={props =>
-      isLoggedIn
-        ? <Component {...props} />
-        : <Redirect
-            to={{
-              pathname: '/signin',
-              state: { from: props.location }
-            }}
-          />}
-  />;
-const PublicRoutes = ({ history, isLoggedIn }) => {
+
+const PublicRoutes = ({ history }) => {
   return (
     <ConnectedRouter history={history}>
       <div>
         <Route
           exact
           path={'/'}
-          component={asyncComponent(() => import('./containers/homePage'))}
+          component={Homepage}
         />
         <Route
           exact
           path={'/signin'}
-          component={asyncComponent(() => import('./containers/Page/signin'))}
+          component={Signin}
+        />
+        <Route
+          exact
+          path={'/register'}
+          component={Signup}
         />
         <Route
           path="/dashboard"
@@ -40,13 +35,9 @@ const PublicRoutes = ({ history, isLoggedIn }) => {
         <Route
           path="/homePage"
           component={App}
-          isLoggedIn={isLoggedIn}
         />
       </div>
     </ConnectedRouter>
   );
 };
-
-export default connect(state => ({
-  isLoggedIn: state.Auth.get('idToken') !== null
-}))(PublicRoutes);
+export default PublicRoutes;
