@@ -46,23 +46,51 @@ export default class  extends Component {
           
           
          {/* end name */}
-         
-         {/* start description */}
-         
-        <Popover content={ 
+        { /* start   date and time range */ }
+         <Popover content={ 
               <div>
-                {<IntlMessages id="form.part.group.description.popover.content" />} 
+                <p>Content</p>
+                <p>Content</p>
               </div>
-            } title={<IntlMessages id="form.part.group.description.popover.title" />}  trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.group.main.1" />  <IntlMessages id="form.part.group.description" />  </Popover>
-          <Input 
-            type="textarea"
-            autosize={{ minRows: 2, maxRows: 6 }}
+            } title="Title" trigger="click">
+            <Icon type="question-circle-o" />  Date and Time Range  </Popover> <a href="#">add new</a>
+          <Select
+            mode= "multiple"
             style={{ width: '100%', marginBottom: 15, marginTop: 5 }}
-          />
-          
-          
-         {/* end description */}
+          >
+            <OptGroup label="Morning">
+              <Option value="1">Sun Morning Jan 8 - Jan 30 from 11am-12pm</Option>
+              <Option value="2">Summer Sales 25$ 40 DSE</Option>
+            </OptGroup>
+            <OptGroup label="Days">
+              <Option value="3">Day One Customers 25% 28 DSE</Option>
+              <Option value="4">First Timers 25$ 40 DSE</Option>
+            </OptGroup>
+          </Select>
+         { /* end     date and time range */ }
+         { /* start   discounts */ }
+         <Popover content={ 
+              <div>
+                <p>Content</p>
+                <p>Content</p>
+              </div>
+            } title="Title" trigger="click">
+            <Icon type="question-circle-o" /> Discount  </Popover> <a href="#">add new</a>
+          <Select
+            mode= "multiple"
+            style={{ width: '100%', marginBottom: 15, marginTop: 5 }}
+          >
+            <OptGroup label="Sales">
+              <Option value="1">Hermain Miller Sales 25% 28 DSE</Option>
+              <Option value="2">Summer Sales 25$ 40 DSE</Option>
+            </OptGroup>
+            <OptGroup label="Special Customers">
+              <Option value="3">Day One Customers 25% 28 DSE</Option>
+              <Option value="4">First Timers 25$ 40 DSE</Option>
+            </OptGroup>
+          </Select>
+         { /* end   discounts */ }
+         
          
          { /* start   image group */ }
          <Popover content={ 
@@ -87,6 +115,22 @@ export default class  extends Component {
             </OptGroup>
           </Select>
          { /* end     image group */ }
+         {/* start description */}
+         
+        <Popover content={ 
+              <div>
+                {<IntlMessages id="form.part.group.description.popover.content" />} 
+              </div>
+            } title={<IntlMessages id="form.part.group.description.popover.title" />}  trigger="click">
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.group.main.1" />  <IntlMessages id="form.part.group.description" />  </Popover>
+          <Input 
+            type="textarea"
+            autosize={{ minRows: 2, maxRows: 6 }}
+            style={{ width: '100%', marginBottom: 15, marginTop: 5 }}
+          />
+          
+          
+         {/* end description */}
         </Col>
       </Row>
     );
