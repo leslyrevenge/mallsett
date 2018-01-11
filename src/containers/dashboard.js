@@ -27,8 +27,8 @@ function mapStateToProps(state) {
 }
 class Dashboard extends Component {
   componentDidMount() {
-    if (!this.props.auth.isAuthenticated) this.props.history.push("/signin")
-
+    if (this.props.auth.isAuthenticated === false)this.props.history.push("/signin")
+    console.log(this.props)
   }
 
   render() {

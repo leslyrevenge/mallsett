@@ -54,7 +54,7 @@ class Signin extends Component {
           localStorage.setItem("jwToken", token);
           setAuthorizationToken(token);
           // var url = window.location.pathname;
-          this.props.history.push('/dashboard')
+          window.location.assign('/dashboard')
         }
         this.setState({ error: res.data, isLoading: false });
       }).catch((err) => { this.setState({ isLoading: false,error:{network:"An error has occured"} }); console.log(err) });
