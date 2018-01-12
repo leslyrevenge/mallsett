@@ -34,6 +34,7 @@ export default class  extends Component {
           
           <GroupPart1 />
           <GroupPart5 />
+          
         </Panel>
         <Panel header={<IntlMessages id="form.part.group.header.2.title" />}  key="2" style={FormWrapper.collapsed}>
           
@@ -43,6 +44,17 @@ export default class  extends Component {
               </div>
             } title={<IntlMessages id="form.part.group.header.2.popover.title" />}  trigger="click">
             <p style={{marginBottom: 15}}><Icon type="question-circle-o" /> <IntlMessages id= "form.part.group.header.2.message" /></p>
+           </Popover>
+          <GroupPart2 />
+        </Panel>
+        <Panel header={<IntlMessages id="form.part.group.header.3.title" />}  key="3" style={FormWrapper.collapsed}>
+          
+          <Popover content={ 
+              <div>
+                {<IntlMessages id="form.part.group.header.3.popover.content" />} 
+              </div>
+            } title={<IntlMessages id="form.part.group.header.3.popover.title" />}  trigger="click">
+            <p style={{marginBottom: 15}}><Icon type="question-circle-o" /> <IntlMessages id= "form.part.group.header.3.message" /></p>
            </Popover>
           <GroupPart2 />
           <GroupPart3 />

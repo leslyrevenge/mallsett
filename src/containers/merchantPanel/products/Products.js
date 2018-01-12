@@ -7,6 +7,9 @@ import {
 
 import ProductPage from './pages/ProductPage';
 import GroupPage from './pages/GroupPage';
+import Uploads from './pages/Uploads';
+import DatePage from './pages/DatePage';
+import TimePage from './pages/TimePage';
 import SizePage from './pages/SizePage';
 
 import LayoutContentWrapper from '../../../components//utility/layoutWrapper';
@@ -30,19 +33,33 @@ const steps = [
   help: 'Groceries',
   key: '2'
 }, {
-  title: 'Sizes',
+  title: 'Organized Uploads',
+  noIcon: 'calendar',
+  content: <Uploads />,
+  description: '',
+  help: 'soemthing here to help',
+  key: '3'
+}, {
+  title: 'Date Range',
+  noIcon: 'calendar',
+  content: <DatePage />,
+  description: '',
+  help: 'soemthing here to help',
+  key: '4'
+}, {
+  title: 'Time Range',
   noIcon: 'environment-o',
-  content: <SizePage />,
+  content: <TimePage />,
   description: '',
   help: 'Groceries',
-  key: '11'
+  key: '5'
 }, {
   title: 'Variations',
   noIcon: 'calendar',
   content: 'form goes here',
   description: '',
   help: 'soemthing here to help',
-  key: '4'
+  key: '11'
 }, {
   title: 'Wholesale',
   noIcon: 'book',
@@ -72,13 +89,6 @@ const steps = [
   help: 'soemthing here to help',
   key: '7'
 }, {
-  title: 'Date & Time Range',
-  noIcon: 'calendar',
-  content: 'form goes here',
-  description: '',
-  help: 'soemthing here to help',
-  key: '8'
-}, {
   title: 'Add on Options',
   noIcon: 'clock-circle-o',
   content: 'form goes here',
@@ -103,7 +113,7 @@ class BuildYourMall extends Component {
         <LayoutContent>
             <Row gutter={24} style={{ marginTop: '0px'}}>
               <Col span="24">
-                <Tabs defaultActiveKey='2' size='small'>
+                <Tabs defaultActiveKey='3' size='small'>
                   {steps.map(item =><TabPane key={item.key} tab={<span>{item.title}</span>} >
                   {item.content}
                   </TabPane> )}

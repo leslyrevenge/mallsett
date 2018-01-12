@@ -63,6 +63,15 @@ const formStyle = styled.div`
     margin-right: 10px;
    
   }
-`
+  
+  .dateTimeHolder{
+   width: 100%;
+   padding-left: 5px;
+   padding-right: 5px;
+   padding-top: 5px;
+   padding-bottom: 5px;
+   
+  }
+` 
 
 export default WithDirection(formStyle);

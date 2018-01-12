@@ -12,7 +12,7 @@ import {
 export default class  extends Component {
   state = {
     navigateSection: true,
-    publishSection: false,
+    publishSection: true,
     overiderSection: false
   };
   handlePublishedChange = (publishSection) => {
