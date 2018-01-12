@@ -23,15 +23,18 @@ import ItemUser from './Lists/ItemUser';
 // const TabPane = Tabs.TabPane;
 
 function callback(key) {}
-const logoutBtn = <span className="red pointer textAlignLeft"> <Icon type="logout" /> logout </span>;
 
 export default class UserPanelTab extends Component {
   constructor(props) {
     super(props);
-
   }
-
+  logout(){
+    localStorage.clear();
+    window.location.assign("/")
+  }
   render() {
+    const logoutBtn = <span onClick={this.logout.bind(this)} className="red pointer textAlignLeft"> <Icon type="logout" /> logout </span>;
+    
     return (
       <LayoutWrapper>
       <PageHeader>
