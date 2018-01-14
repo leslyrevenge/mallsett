@@ -44,7 +44,7 @@ export class App extends Component {
                 </Debounce>
                 <Topbar url={url} />
                 <Layout style={{ flexDirection: 'row', overflowX: 'hidden' }}>
-                  <Sidebar url={url} />
+                 {this.props.auth.isAuthenticated? <Sidebar url={url} />:null}
                   <Layout
                     className="isoContentMainLayout"
                     style={{
@@ -83,7 +83,8 @@ export class App extends Component {
 
 export default connect(
   state => ({
-    auth: state.Auth
+    auth: state.auth
+
   }),
   { logout, toggleAll }
 )(App);

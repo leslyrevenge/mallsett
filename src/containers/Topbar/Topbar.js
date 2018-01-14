@@ -43,9 +43,9 @@ class Topbar extends Component {
              
             </li>
             <li>
-            <Link to="/dashboard" onClick={toggleCollapsed}>
+          {this.props.auth.isAuthenticated?  <Link to="/dashboard" onClick={toggleCollapsed}>
            <i className="ion-briefcase small-margin-right "/> Business Panel
-            </Link>
+            </Link>:null}
             
             </li>
             <li>
@@ -69,6 +69,7 @@ class Topbar extends Component {
 export default connect(
   state => ({
     ...state.App.toJS(),
+    auth:state.auth
   })
 )(Topbar);
 
