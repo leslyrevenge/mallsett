@@ -45,11 +45,11 @@ class CreateAddress extends Component {
           </Col>
         </InputGroup> */}
         <Signin/>
-        <InputGroup size="large" style={{ marginBottom: '15px' }}>
+        {/* <InputGroup size="large" style={{ marginBottom: '15px' }}>
           <Col span="24">
             <Button type="success">Login</Button>
           </Col>
-        </InputGroup>
+        </InputGroup> */}
         <InputGroup className="textCenter green" size="large" style={{ marginBottom: '15px' }}>
           or Signin with Social Media
         </InputGroup>

@@ -125,6 +125,12 @@ class PlugBusiness extends React.Component {
       current: 0,
     };
   }
+  componentDidMount() {
+    if(this.props.auth.isAuthenticated ){
+      this.setState({current:1})
+    }
+  }
+  
   next() {
     const current = this.state.current + 1;
     this.setState({ current });
@@ -176,6 +182,7 @@ class PlugBusiness extends React.Component {
 
 
                     {
+                        this.state.current === 1 && this.props.auth.isAuthenticated === true ?null:
                       this.state.current > 0
                       &&
                       <Col span="8">
@@ -188,10 +195,21 @@ class PlugBusiness extends React.Component {
 
 
                     }
-                    {this.state.current === 0 && this.props.auth.isAuthenticated === false?console.log("hide"):console("me")}
+                    {this.state.current === 0 && this.props.auth.isAuthenticated === false?
+                      null
+                      :
+                      
+                        this.state.current < steps.length - 1
+                          &&
+                          <Col span="8">
+                            <Button className="fullButton square" type="primary" style={{ marginRight: 8 }} onClick={() => this.next()}>
+                              Next
+                  </Button>
+                          </Col>
+                      
+                      }
                     
-                  }
-                    {
+                    {/* {
                       this.state.current < steps.length - 1
                       &&
                       <Col span="8">
@@ -199,7 +217,7 @@ class PlugBusiness extends React.Component {
                             Next
                   </Button>
                       </Col>
-                    }
+                    } */}
 
                     {
                           this.state.current === steps.length - 1

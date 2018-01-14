@@ -123,7 +123,7 @@ class UserPanelTab extends Component {
                     {this.props.auth.isAuthenticated ? null : <CreateUser />}
                     {this.props.auth.isAuthenticated ? <UpdateUser /> : null}
                     {this.props.auth.isAuthenticated ? null :
-                      <Card title="Update User" >
+                      <Card title="Login" style={{marginTop:"10px"}}>
                         <UserLogin />
                       </Card>
                     }

@@ -62,7 +62,7 @@ class Signin extends Component {
   }
   render() {
     return (
-      <div className="row" style={{ margin: "10px 0px" }}>
+      <div className="row" >
         <div className="col-sm-12l">
           < div className={classnames("slideInDown", "animated")}>
 
