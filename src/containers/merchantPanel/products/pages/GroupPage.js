@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ProductNav from '../navigation/ProductNav';
+import GroupNavigation from '../navigation/GroupNavigation';
 import FormGroup from '../forms/formGroup';
 import { 
   Row, 
@@ -14,7 +14,7 @@ export default class  extends Component {
           <FormGroup />
         </Col>
         <Col span="14">
-          <ProductNav />
+          <GroupNavigation />
         </Col>
       </Row>
     );

@@ -63,7 +63,6 @@ export default class  extends Component {
           
           
          {/* end description */}
-         
          { /* start   image group */ }
          <Popover content={ 
               <IntlMessages id="form.part.group.groupImage.popover.content" />
