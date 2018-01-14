@@ -62,19 +62,17 @@ class Signin extends Component {
   }
   render() {
     return (
-      <div className="row" style={{ margin: "100px 0px" }}>
-        <div className="col-sm-4 col-sm-offset-4">
+      <div className="row" style={{ margin: "10px 0px" }}>
+        <div className="col-sm-12l">
           < div className={classnames("slideInDown", "animated")}>
 
             <div className="row" style={{ margin: "0px" }}>
               <div className="    ">
                 <div className="box">
                   <form action="" method="POST" onSubmit={this.submit.bind(this)}>
-                    <div className="form-group" >
-
-                    </div>
+                  
                     <div className={classnames("form-group", this.state.error.email ? "has-error" : null)}>
-                      <input type="email" name="email" onChange={this.typing.bind(this)} className="form-control" placeholder="Email" />
+                      <input type="email" name="email" onChange={this.typing.bind(this)} className="form-control input-sm" placeholder="Email" />
                     </div>
                     {this.state.error.email ?
                       <div className="form-group has-error">
@@ -82,7 +80,7 @@ class Signin extends Component {
                       </div>
                       : null}
                     <div className={classnames("form-group", this.state.error.password ? "has-error" : null)}>
-                      <input type="password" name="password" onChange={this.typing.bind(this)} className="form-control" placeholder="password" />
+                      <input type="password" name="password" onChange={this.typing.bind(this)} className="form-control input-sm" placeholder="password" />
                     </div>
 
                     {this.state.error.password ?
@@ -95,15 +93,15 @@ class Signin extends Component {
                         <p className="text-danger text-center">{this.state.error.network}</p>
                       </div>
                       : null}
-                    <div className="form-group">
+                    {/* <div className="form-group">
                       <p>Not a user? <Link to="/register">click here to register</Link></p>
-                    </div>
+                    </div> */}
 
 
-                    <button type="submit" className={classnames("btn", "btn-primary",
-                      "btn-block", this.state.isLoading ? "disabled" : null)}> {this.state.isLoading ?
+                    <button type="submit" className={classnames("btn", "btn-primary","btn-sm",
+                      this.state.isLoading ? "disabled" : null)}> {this.state.isLoading ?
                         <i className="fa fa-spinner fa-spin"></i>
-                        : "Signin"}</button>
+                        : "Login"}</button>
 
 
 

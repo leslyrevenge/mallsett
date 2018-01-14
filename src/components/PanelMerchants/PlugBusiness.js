@@ -16,14 +16,17 @@ import BusinessAssociations from './Forms/BusinessAssociations';
 import CompletePlugBusiness from './Forms/CompletePlugBusiness';
 
 import Input, { InputGroup } from '../../components/uielements/input';
-
-
+import { connect } from "react-redux"
 import PageHeader from '../../components/utility/pageHeader';
 import LayoutWrapper from '../../components/utility/layoutWrapper';
 import IntlMessages from '../../components/utility/intlMessages';
 import { Row, Col } from 'antd';
 
-
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+}
 const Step = Steps.Step;
 
 const steps = [{
@@ -39,7 +42,7 @@ const steps = [{
   content: <PluggIntroduction />,
   description: 'Watch this short video and learn more about plugging your business with other businesses and consumers.',
   help: 'soemthing here to help'
-},{
+}, {
   title: 'Find my Business',
   icon: 'environment-o',
   content: <FindMyBusiness />,
@@ -57,7 +60,7 @@ const steps = [{
   content: <Suppliers />,
   description: '',
   help: 'soemthing here to help'
-},  {
+}, {
   title: 'Find my Suppliers',
   icon: 'shopping-cart',
   content: <Suppliers />,
@@ -134,87 +137,90 @@ class PlugBusiness extends React.Component {
     const { current } = this.state;
     return (
       <LayoutWrapper>
-      
-      <PageHeader>
+
+        <PageHeader>
           {<IntlMessages id="Panel.Merchant.Header" />}
         </PageHeader>
-     <Box>
-      
-                <Row gutter={24}>
-                  <Col span="24">
-        <Steps  size="small" current={current}>
-          {steps.map(item => <Step key={item.title} icon={<Icon type={item.icon} />}  progressDot="true"  />
-          
-    
-          )}
-        </Steps>
-        <h3 style={{ marginTop: 20, marginBottom: 0 }}> 
-        {steps[this.state.current].title} <Popover content={(<div>
-                {steps[this.state.current].help} 
-              </div>)} 
-            title={steps[this.state.current].title}  trigger="click">
-          <Button type="dashed" icon="question-circle-o"> Help</Button>
-          </Popover> 
-         </h3>
-         <p style={{marginBottom: 20 }}> {steps[this.state.current].description} </p>
-        <div className="steps-content">{steps[this.state.current].content}  </div>
-        <div className="steps-action">
-        <InputGroup  style={{ marginBottom: '15px' }}>
-             <Row gutter={24} style={{ marginTop: 8 }}>
-            <Col span="8"></Col>
-            {
-           this.state.current <= 0
-             && 
-             <Col span="8"></Col>
-            }
-            
-            
-               
-                
+        <Box>
 
-          {
-            this.state.current > 0
-            &&     
-                <Col span="8">
-                  <Button className="fullButton square" style={{ marginRight: 8 }} onClick={() => this.prev()}>
-                    Previous
+          <Row gutter={24}>
+            <Col span="24">
+              <Steps size="small" current={current}>
+                {steps.map((item,key) => <Step key={item.title} icon={<Icon type={item.icon} />} progressDot="true" />
+
+
+                )}
+              </Steps>
+              <h3 style={{ marginTop: 20, marginBottom: 0 }}>
+                {steps[this.state.current].title} <Popover content={(<div>
+                  {steps[this.state.current].help}
+                </div>)}
+                  title={steps[this.state.current].title} trigger="click">
+                  <Button type="dashed" icon="question-circle-o"> Help</Button>
+                </Popover>
+              </h3>
+              <p style={{ marginBottom: 20 }}> {steps[this.state.current].description} </p>
+              <div className="steps-content">{steps[this.state.current].content}  </div>
+              <div className="steps-action">
+                <InputGroup style={{ marginBottom: '15px' }}>
+                  <Row gutter={24} style={{ marginTop: 8 }}>
+                    <Col span="8"></Col>
+                    {
+                      this.state.current <= 0
+                      &&
+                      <Col span="8"></Col>
+                    }
+
+
+
+
+
+                    {
+                      this.state.current > 0
+                      &&
+                      <Col span="8">
+                        <Button className="fullButton square" style={{ marginRight: 8 }} onClick={() => this.prev()}>
+                          Previous
                   </Button>
-                </Col>
-               
-              
-              
-            
-          }
-          {
-            this.state.current < steps.length - 1
-            &&
-            <Col span="8">
-                  <Button className="fullButton square" type="primary" style={{ marginRight: 8 }} onClick={() => this.next()}>
-                    Next
+                      </Col>
+
+
+
+
+                    }
+                    {this.state.current === 0 && this.props.auth.isAuthenticated === false?console.log("hide"):console("me")}
+                    
+                  }
+                    {
+                      this.state.current < steps.length - 1
+                      &&
+                      <Col span="8">
+                          <Button className="fullButton square" type="primary" style={{ marginRight: 8 }} onClick={() => this.next()}>
+                            Next
                   </Button>
-                </Col>
-          }
-          
-          {
-            this.state.current === steps.length - 1
-            &&
-            <Col span="8">
-                  <Button className="fullButton square" type="primary" style={{ marginRight: 8 }} 
-                  onClick={() => message.success('Processing complete!')}>
-                    Done
+                      </Col>
+                    }
+
+                    {
+                          this.state.current === steps.length - 1
+                          &&
+                          <Col span="8">
+                            <Button className="fullButton square" type="primary" style={{ marginRight: 8 }}
+                              onClick={() => message.success('Processing complete!')}>
+                              Done
                   </Button>
-                </Col>
-          }
-</Row>
-            </InputGroup>
-        </div>
-       </Col>
-                  
-                </Row>
-              
-     </Box>
+                          </Col>
+                        }
+                  </Row>
+                </InputGroup>
+              </div>
+            </Col>
+
+          </Row>
+
+        </Box>
       </LayoutWrapper>
-    );
+          );
   }
 }
-export default PlugBusiness;
+export default connect(mapStateToProps)(PlugBusiness);

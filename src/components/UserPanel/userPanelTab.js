@@ -4,9 +4,8 @@ import PageHeader from '../../components/utility/pageHeader';
 import Box from '../../components/utility/box';
 import LayoutWrapper from '../../components/utility/layoutWrapper';
 import IntlMessages from '../../components/utility/intlMessages';
-import { Row, Col } from 'antd';
+import { Row, Col, Card } from 'antd';
 import { Icon } from 'antd';
-
 
 import UserGamification from './Gamification/userGamification';
 
@@ -14,68 +13,74 @@ import CreateAddress from './Forms/CreateAddress';
 import CreateUser from './Forms/CreateUser';
 import UpdateUser from './Forms/UpdateUser';
 import UserLogin from './Forms/UserLogin';
-
+import { connect } from "react-redux"
 import ReadAddress from './Lists/ReadAddress';
 import ItemUser from './Lists/ItemUser';
 
+const { Meta } = "Card"
 
-
+function mapStateToProps(state) {
+  return {
+    auth: state.auth
+  }
+}
 // const TabPane = Tabs.TabPane;
 
-function callback(key) {}
+function callback(key) { }
 
-export default class UserPanelTab extends Component {
+class UserPanelTab extends Component {
   constructor(props) {
     super(props);
   }
-  logout(){
+
+  logout() {
     localStorage.clear();
     window.location.assign("/")
   }
   render() {
     const logoutBtn = <span onClick={this.logout.bind(this)} className="red pointer textAlignLeft"> <Icon type="logout" /> logout </span>;
-    
+    console.log(this.props)
     return (
       <LayoutWrapper>
-      <PageHeader>
+        <PageHeader>
           {<IntlMessages id="forms.Tabs.UserPanel.Header" />}
         </PageHeader>
         <Box >
-          
+
           <div className="card-container">
             <Tabs
               defaultActiveKey="1"
               tabPosition="right"
               tabBarExtraContent={logoutBtn}
             >
-            <UserGamification />
-               <TabPane className="margin-medium-bottom" tab={<span><Icon type="check-circle-o" />Dashboard</span>} key="1">
+              <UserGamification />
+              <TabPane className="margin-medium-bottom" tab={<span><Icon type="check-circle-o" />Dashboard</span>} key="1">
                 <Row gutter={8}>
                   <Col span="14">
                     Dashboard Detail
                   </Col>
                   <Col span="10">
-                    News 
+                    News
                   </Col>
                 </Row>
               </TabPane>
               <TabPane tab={<span><Icon type="environment-o" />Delivery Locations</span>} key="2">
                 <Row gutter={8}>
                   <Col span="24" >
-                    Add Delivery Address - make sure your orders are delivered to the right place! 
+                    Add Delivery Address - make sure your orders are delivered to the right place!
                   </Col>
                 </Row>
                 <Row gutter={8}>
                   <Col span="12" >
-                    <CreateAddress /> 
-                  
+                    <CreateAddress />
+
                   </Col>
                   <Col span="12">
-                  
+
                     <ReadAddress />
                   </Col>
                 </Row>
-                
+
               </TabPane>
               <TabPane tab={<span><Icon type="user-add" />Include Dependents</span>} key="3">
                 <Row>
@@ -108,16 +113,20 @@ export default class UserPanelTab extends Component {
                 </Row>
               </TabPane>
               <TabPane tab={<span><Icon type="safety" />Profile Settings</span>} key="6">
-              <Row gutter={8}>
+                <Row gutter={8}>
                   <Col span="24" >
                     Signup - order anything, not just food
                   </Col>
                 </Row>
                 <Row gutter={8}>
-                  <Col span="14">
-                    <CreateUser />
-                    <UpdateUser />
-                    <UserLogin />
+                  <Col span="24">
+                    {this.props.auth.isAuthenticated ? null : <CreateUser />}
+                    {this.props.auth.isAuthenticated ? <UpdateUser /> : null}
+                    {this.props.auth.isAuthenticated ? null :
+                      <Card title="Update User" >
+                        <UserLogin />
+                      </Card>
+                    }
                   </Col>
                   <Col span="10">
                     <ItemUser />
@@ -154,18 +163,18 @@ export default class UserPanelTab extends Component {
                   </Col>
                 </Row>
               </TabPane>
-                            <TabPane tab={<span><Icon type="message" />My Messages</span>} key="10">
+              <TabPane tab={<span><Icon type="message" />My Messages</span>} key="10">
                 <Row>
                   <Col span="24">
                     Message Here
                   </Col>
-                  
+
                 </Row>
               </TabPane>
               <TabPane tab={<span><Icon type="trademark" />Terms and Conditions</span>} key="11">
                 <Row>
                   <Col span="14">
-                    Terms and Conditions 
+                    Terms and Conditions
                   </Col>
                   <Col span="10">
                     Term List
@@ -199,3 +208,5 @@ export default class UserPanelTab extends Component {
     );
   }
 }
+
+export default connect(mapStateToProps)(UserPanelTab)

@@ -10,6 +10,7 @@ import ContentHolder from '../../../components/utility/contentHolder';
 import IntlMessages from '../../../components/utility/intlMessages';
 
 import SigninWrapper from '../signin.style';
+import Signin from '../../../containers/Page/signin';
 
 
 
@@ -33,16 +34,17 @@ class CreateAddress extends Component {
       <Row  justify="start" >
   <Col md={24} sm={24} xs={24} >
       <ContentHolder>
-        <InputGroup size="large" style={{ marginBottom: '15px' }}>
+        {/* <InputGroup size="large" style={{ marginBottom: '15px' }}>
           <Col span="24">
-            <Input placeholder="Email Address" />
+                  <Input placeholder="Email Address" prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} />
           </Col>
         </InputGroup>
          <InputGroup size="large" style={{ marginBottom: '15px' }}>
           <Col span="24">
-            <Input placeholder="Password" />
+                  <Input placeholder="Password" prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}/>
           </Col>
-        </InputGroup>
+        </InputGroup> */}
+        <Signin/>
         <InputGroup size="large" style={{ marginBottom: '15px' }}>
           <Col span="24">
             <Button type="success">Login</Button>

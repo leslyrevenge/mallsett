@@ -26,10 +26,10 @@ function mapStateToProps(state) {
   }
 }
 class Dashboard extends Component {
-  componentDidMount() {
-    if (this.props.auth.isAuthenticated === false)this.props.history.push("/signin")
-    console.log(this.props)
-  }
+  // componentDidMount() {
+  //   if (this.props.auth.isAuthenticated === false)this.props.history.push("/signin")
+  //   console.log(this.props)
+  // }
 
   render() {
     return (
