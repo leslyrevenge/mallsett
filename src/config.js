@@ -1,5 +1,5 @@
 export default {
-  apiUrl: 'http://localhost:3001',
+  apiUrl: 'https://apluggserver.herokuapp.com',
 };
 
 const siteConfig = {
