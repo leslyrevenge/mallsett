@@ -10,7 +10,7 @@ import { Icon } from 'antd';
 import UserGamification from './Gamification/userGamification';
 
 import CreateAddress from './Forms/CreateAddress';
-import CreateUser from './Forms/CreateUser';
+import Createuser from './Forms/Createuser';
 import UpdateUser from './Forms/UpdateUser';
 import UserLogin from './Forms/UserLogin';
 import { connect } from "react-redux"
@@ -54,7 +54,7 @@ class UserPanelTab extends Component {
                 tabBarExtraContent={logoutBtn}
               >
                 <UserGamification />
-                <TabPane className="margin-medium-bottom" tab={<span><Icon type="check-circle-o" />Dashboard</span>} disabled key="1">
+                <TabPane className="margin-medium-bottom" tab={<span><Icon type="check-circle-o" />Dashboard</span>}  key="1">
                   <Row gutter={8}>
                     <Col span="14">
                       Dashboard Detail
@@ -64,7 +64,7 @@ class UserPanelTab extends Component {
                   </Col>
                   </Row>
                 </TabPane>
-                <TabPane tab={<span><Icon type="environment-o" />Delivery Locations</span>} key="2" disabled>
+                <TabPane tab={<span><Icon type="environment-o" />Delivery Locations</span>} key="2" >
                   <Row gutter={8}>
                     <Col span="24" >
                       Add Delivery Address - make sure your orders are delivered to the right place!
@@ -120,10 +120,10 @@ class UserPanelTab extends Component {
                   </Row>
                   <Row gutter={8}>
                     <Col span="24">
-                      {/* {this.props.auth.isAuthenticated?null:<CreateUser />} */}
-                      <UpdateUser />
-                      {this.props.auth.isAuthenticated ? null :
-                        <Card title="Update User" >
+                      {this.props.auth.isAuthenticated === true? null:<Createuser />}
+                      {this.props.auth.isAuthenticated === true? <UpdateUser />:null}
+                      {this.props.auth.isAuthenticated === true? null :
+                        <Card title="Login">
                           <UserLogin />
                         </Card>
                       }
@@ -210,7 +210,7 @@ class UserPanelTab extends Component {
                 tabBarExtraContent={logoutBtn}
               >
                 <UserGamification />
-                <TabPane className="margin-medium-bottom" tab={<span><Icon type="check-circle-o" />Dashboard</span>} disabled key="1">
+                <TabPane className="margin-medium-bottom" tab={<span><Icon type="check-circle-o" />Dashboard</span>} disabled key="6">
                   <Row gutter={8}>
                     <Col span="14">
                       Dashboard Detail
@@ -268,7 +268,7 @@ class UserPanelTab extends Component {
                   </Col>
                   </Row>
                 </TabPane>
-                <TabPane tab={<span><Icon type="safety" />Profile Settings</span>} key="6">
+                <TabPane tab={<span><Icon type="safety" />Profile Settings</span>} key="1">
                   <Row gutter={8}>
                     <Col span="24" >
                       Signup - order anything, not just food
@@ -277,16 +277,14 @@ class UserPanelTab extends Component {
                   <Row gutter={8}>
                     <Col span="24">
                       {/* {this.props.auth.isAuthenticated?null:<CreateUser />} */}
-                      <UpdateUser />
+                      <Createuser />
                       {this.props.auth.isAuthenticated ? null :
-                        <Card title="Update User" >
+                        <Card title="Login" style={{ marginTop: "10px" }}>
                           <UserLogin />
                         </Card>
                       }
                     </Col>
-                    <Col span="10">
-                      <ItemUser />
-                    </Col>
+                  
                   </Row>
                 </TabPane>
                 <TabPane tab={<span><Icon type="idcard" />Resume Portfolio</span>} key="7" disabled>

@@ -49,7 +49,7 @@ class TopbarUser extends Component {
 
           </div> : null}
         <div>
-          Login / Register
+          {this.props.auth.isAuthenticated ?null:"Login / Register"}
         </div>
         <TopbarModal
           title="User Panel Modal"

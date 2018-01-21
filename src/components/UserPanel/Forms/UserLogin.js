@@ -25,60 +25,18 @@ class CreateAddress extends Component {
     setTimeout(() => {
       try {
         document.getElementById('InputTopbarSearch').focus();
-      } catch (e) {}
+      } catch (e) { }
     }, 200);
   }
   render() {
     return (
-      <SigninWrapper>
-      <Row  justify="start" >
-  <Col md={24} sm={24} xs={24} >
-      <ContentHolder>
-        {/* <InputGroup size="large" style={{ marginBottom: '15px' }}>
-          <Col span="24">
-                  <Input placeholder="Email Address" prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} />
-          </Col>
-        </InputGroup>
-         <InputGroup size="large" style={{ marginBottom: '15px' }}>
-          <Col span="24">
-                  <Input placeholder="Password" prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}/>
-          </Col>
-        </InputGroup> */}
-        <Signin/>
-        {/* <InputGroup size="large" style={{ marginBottom: '15px' }}>
-          <Col span="24">
-            <Button type="success">Login</Button>
-          </Col>
-        </InputGroup> */}
-        <InputGroup className="textCenter green" size="large" style={{ marginBottom: '15px' }}>
-          or Signin with Social Media
-        </InputGroup>
-        <InputGroup size="large" style={{ marginBottom: '15px' }}>
-          <Col span="24">
-            <Button type="primary"><Icon type="facebook" /><IntlMessages id="page.signInFacebook" /></Button>
-          </Col>
-        </InputGroup>
-        <InputGroup size="large" style={{ marginBottom: '15px' }}>
-          <Col span="24">
-            <Button type="danger"><Icon type="google" /> <IntlMessages id="page.signInGoogle" /></Button>
-          </Col>
-        </InputGroup>
-
-         <InputGroup size="large" style={{ marginBottom: '15px' }}>
-         <Row  gutter={16} >
-            <Col span="12">
-              <Button type="dashed" ghost>register</Button>
-            </Col>
-            <Col span="12">
-              <Button type="dashed" ghost>forgot password</Button>
-            </Col>
-          </Row>
-        </InputGroup>
-        
-      </ContentHolder>
-  </Col>
-</Row>
-</SigninWrapper>
+      // <SigninWrapper>
+      <Row justify="start">
+        <Col md={24} sm={24} xs={24} >
+          <Signin />
+        </Col>
+      </Row>
+      // </SigninWrapper>
     );
   }
 }

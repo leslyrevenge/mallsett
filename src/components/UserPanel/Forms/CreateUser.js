@@ -17,7 +17,7 @@ function mapStateToProps(state) {
     auth: state.auth
   }
 }
-class Signup extends Component {
+class Createuser extends Component {
 
   constructor(props) {
     super(props);
@@ -186,7 +186,7 @@ class Signup extends Component {
 
                 <button type="submit" className={classnames("btn", "btn-primary",
                   "btn", "btn-sm", this.state.isLoading ? "disabled" : null)}> {this.state.isLoading ?
-                    <i className="fa fa-spinner fa-spin"></i>
+                    <span><i className="fa fa-spinner fa-spin"></i> Loading...</span>
                     : "Register"}</button>
 
               </form>
@@ -204,4 +204,4 @@ class Signup extends Component {
 
 }
 
-export default connect(mapStateToProps)(Signup)
+export default connect(mapStateToProps)(Createuser)

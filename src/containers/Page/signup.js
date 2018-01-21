@@ -102,7 +102,7 @@ class Signup extends Component {
 
                             <button type="submit" className={classnames("btn", "btn-primary",
                                 "btn-block", "bg-sm", this.state.isLoading ? "disabled" : null)}> {this.state.isLoading ?
-                                    <i className="fa fa-spinner fa-spin"></i>
+                                    <span><i className="fa fa-spinner fa-spin"></i> Loading...</span>
                                     : "Sign Up"}</button>
 
                         </form>
