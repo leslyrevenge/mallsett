@@ -64,7 +64,7 @@ class Signin extends Component {
     return (
       <div className="row" >
         <div className="col-sm-12l">
-          < div className={classnames("slideInDown", "animated")}>
+          < div className={classnames("bounceInLeft", "animated")}>
 
             <div className="row" style={{ margin: "0px" }}>
               <div className="    ">

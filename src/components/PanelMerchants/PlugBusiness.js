@@ -19,6 +19,7 @@ import Input, { InputGroup } from '../../components/uielements/input';
 import { connect } from "react-redux"
 import PageHeader from '../../components/utility/pageHeader';
 import LayoutWrapper from '../../components/utility/layoutWrapper';
+import Signin from "../../containers/Page/signin"
 import IntlMessages from '../../components/utility/intlMessages';
 import { Row, Col } from 'antd';
 
@@ -32,7 +33,7 @@ const Step = Steps.Step;
 const steps = [{
   title: 'Login or Register',
   icon: 'lock',
-  content: 'add login / register form here',
+  content: <Signin />,
   description: 'Please login or register so you can add your business',
   help: 'soemthing here to help'
 },
