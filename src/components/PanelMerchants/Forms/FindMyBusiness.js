@@ -4,7 +4,7 @@ import Input, { InputGroup } from '../../../components/uielements/input';
 import Button from '../../../components/uielements/button';
 import ContentHolder from '../../../components/utility/contentHolder';
 
-import MerchantItemCard from './MerchantItemCard';
+import MerchantAdd from './MerchantAdd';
 
 
 
@@ -27,7 +27,7 @@ class CreateAddress extends Component {
           </Col>
         </InputGroup>
         <InputGroup size="large" style={{ marginBottom: '15px' }}>
-        <MerchantItemCard />
+        <MerchantAdd />
         </InputGroup>
     
       </ContentHolder>

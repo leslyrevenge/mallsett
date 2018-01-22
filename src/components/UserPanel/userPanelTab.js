@@ -10,7 +10,7 @@ import { Icon } from 'antd';
 import UserGamification from './Gamification/userGamification';
 
 import CreateAddress from './Forms/CreateAddress';
-import Createuser from './Forms/Createuser';
+import Createuser from './Forms/CreateUser';
 import UpdateUser from './Forms/UpdateUser';
 import UserLogin from './Forms/UserLogin';
 import { connect } from "react-redux"

@@ -30,13 +30,8 @@ function mapStateToProps(state) {
 }
 const Step = Steps.Step;
 
-const steps = [{
-  title: 'Login or Register',
-  icon: 'lock',
-  content: <Signin />,
-  description: 'Please login or register so you can add your business',
-  help: 'soemthing here to help'
-},
+const steps = [
+ 
 {
   title: '2 Minute Introduction',
   icon: 'bell',

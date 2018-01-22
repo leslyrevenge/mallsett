@@ -87,7 +87,7 @@ export default class  extends Component {
                 <p>Content</p>
               </div>
             } title="Title" trigger="click">
-            <Icon type="question-circle-o" />  Date Range  </Popover> <a href="#">add new</a>
+            <Icon type="question-circle-o" />  Time Range  </Popover> <a href="#">add new</a>
           <Select
             mode= "multiple"
             style={{ width: '100%', marginBottom: 15, marginTop: 5 }}
