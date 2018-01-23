@@ -166,10 +166,21 @@
   "form.part.date.min": "Start Date",
   "form.part.date.max": "End Date",
   "form.part.date.name.popover.content": "Date content ",
-  "form.part.date.name.popover.title": "Date Tutorial",
+  "form.part.date.name.popover.title": "Naming Date Range",
    "form.part.date.min.popover.content": "min content ",
-  "form.part.datetime.min.popover.title": "Start Date Tutorial",
+  "form.part.date.min.popover.title": "Start Date Tutorial",
   "form.part.date.max.popover.content": "end content ",
-  "form.part.date.max.popover.title": "End Date Tutorial"
+  "form.part.date.max.popover.title": "End Date Tutorial",
+  
+  
+  "form.part.lifespan.name": "Name of Lifespan Range",
+  "form.part.lifespan.min": "Start Lifespan",
+  "form.part.lifespan.max": "End Lifespan",
+  "form.part.lifespan.name.popover.content": "Lifespan content ",
+  "form.part.lifespan.name.popover.title": "Naming Lifespan Range",
+   "form.part.lifespan.min.popover.content": "min content ",
+  "form.part.lifespan.min.popover.title": "Start Lifespan Tutorial",
+  "form.part.lifespan.max.popover.content": "end content ",
+  "form.part.lifespan.max.popover.title": "End Lifespan Tutorial"
   
 }

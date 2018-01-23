@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import FormLifespan from '../forms/formLifespan';
 import IntlMessages from '../../../../components/utility/intlMessages';
-import DateList from '../lists/DateList';
+import LifespanList from '../lists/LifespanList';
 import { 
   Row, 
-  Collapse,
-  Col,
-  Icon
+  Col
+  
 } from 'antd';
 
-const Panel = Collapse.Panel;
 
 
 export default class  extends Component {
@@ -22,7 +20,7 @@ export default class  extends Component {
         </Col>
         <Col span="14">
          
-              <DateList />
+              <LifespanList />
         </Col>
       </Row>
     );

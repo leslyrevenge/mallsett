@@ -15,7 +15,7 @@ export default class  extends Component {
     state = {
     associateSection: true,
     publishSection: true,
-    globalizeSection: false
+    globalizeSection: true
   };
   handlePublishedChange = (publishSection) => {
     this.setState({ publishSection });
@@ -44,7 +44,7 @@ export default class  extends Component {
               <div>
                 {<IntlMessages id="form.part.date.name.popover.content" />} 
               </div>
-            } title={<IntlMessages id="form.part.date.name.popover.title" />}  trigger="click">
+            } title={<IntlMessages id="form.part.date.name.popover.title "/>}  trigger="click">
             <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.name" />  </Popover>
           <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
           
@@ -56,21 +56,19 @@ export default class  extends Component {
         { /* start   date range */ }
          <Popover content={ 
               <div>
-                <p>Content</p>
-                <p>Content</p>
+                {<IntlMessages id="form.part.date.name.popover.content" />} 
               </div>
-            } title="Title" trigger="click">
+            } title={<IntlMessages id="form.part.date.min.popover.title" />}  trigger="click">
             <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.min" />  </Popover>
-            <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
+           <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
           </Col>
           <Col span="12">
         { /* start   date range */ }
          <Popover content={ 
               <div>
-                <p>Content</p>
-                <p>Content</p>
+               {<IntlMessages id="form.part.date.max.popover.content" />} 
               </div>
-            } title="Title" trigger="click">
+            } title={<IntlMessages id="form.part.date.max.popover.title" />}  trigger="click">
             <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.max" />  </Popover>
             <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
           </Col>
@@ -111,7 +109,7 @@ export default class  extends Component {
             /> <Popover content={ 
               <IntlMessages id="form.part.group.associates.popover.content" />
             } title={<div> 
-              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.associates.popover.title" />
+              <IntlMessages id="form.part.group.associates.popover.title" />
               </div> } trigger="click">
             <IntlMessages id="associates" /> : <Icon type="question-circle-o" />   </Popover>    
             </Col>
@@ -128,7 +126,7 @@ export default class  extends Component {
             /> <Popover content={ 
               <IntlMessages id="form.part.group.published.popover.content" />
             } title={<div> 
-              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.published.popover.title" />
+              <IntlMessages id="form.part.group.published.popover.title" />
               </div> } trigger="click">
             <IntlMessages id="published" /> : <Icon type="question-circle-o" />   </Popover>    
             </Col>
@@ -144,4 +142,6 @@ export default class  extends Component {
     );
   }
 }
+
+
 

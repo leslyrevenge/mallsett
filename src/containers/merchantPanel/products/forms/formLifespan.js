@@ -4,30 +4,30 @@ import {
   Row, 
   Col,
   Input,
-  Switch,
   Popover,
+  Switch,
   Icon,
   DatePicker,
-  Button} from 'antd';
-
+  Button
+} from 'antd';
 
 export default class  extends Component {
     state = {
-    navigateSection: true,
+    associateSection: true,
     publishSection: true,
-    overiderSection: false
+    globalizeSection: true
   };
   handlePublishedChange = (publishSection) => {
     this.setState({ publishSection });
   }
-  handleNaviagionChange = (navigateSection) => {
-    this.setState({ navigateSection });
+  handleAssociateChange = (associateSection) => {
+    this.setState({ associateSection });
   }
-  handleOverideriderChange = (overiderSection) => {
-    this.setState({ overiderSection });
+  handleGlbalizeChange = (globalizeSection) => {
+    this.setState({ globalizeSection });
   }
   render() {
-     const { navigateSection, publishSection, overiderSection } = this.state;
+     const { associateSection, publishSection, globalizeSection } = this.state;
     return (
       <Row gutter={24}>
         <Col span="24">
@@ -44,34 +44,32 @@ export default class  extends Component {
               <div>
                 {<IntlMessages id="form.part.lifespan.name.popover.content" />} 
               </div>
-            } title={<IntlMessages id="form.part.lifespan.name.popover.title" />}  trigger="click">
+            } title={<IntlMessages id="form.part.lifespan.name.popover.title "/>}  trigger="click">
             <Icon type="question-circle-o" />  <IntlMessages id="form.part.lifespan.name" />  </Popover>
           <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
           
           
          {/* end name */}
          
-       <Row gutter={24}>
+        <Row gutter={24}>
         <Col span="12">
-        { /* start   date range */ }
+        { /* start   lifespan range */ }
          <Popover content={ 
               <div>
-                <p>Content</p>
-                <p>Content</p>
+                {<IntlMessages id="form.part.lifespan.name.popover.content" />} 
               </div>
-            } title="Title" trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.min" />  </Popover>
-            <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
+            } title={<IntlMessages id="form.part.lifespan.min.popover.title" />}  trigger="click">
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.lifespan.min" />  </Popover>
+           <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
           </Col>
           <Col span="12">
-        { /* start   date range */ }
+        { /* start   lifespan range */ }
          <Popover content={ 
               <div>
-                <p>Content</p>
-                <p>Content</p>
+               {<IntlMessages id="form.part.lifespan.max.popover.content" />} 
               </div>
-            } title="Title" trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.max" />  </Popover>
+            } title={<IntlMessages id="form.part.lifespan.max.popover.title" />}  trigger="click">
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.lifespan.max" />  </Popover>
             <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
           </Col>
       </Row>
@@ -82,63 +80,68 @@ export default class  extends Component {
               Ending Section
               
           ******************************8*/ }
-         { /* start   overide products */ }
+         { /* start   globalize products */ }
          <Col span="8" >
             <Switch size="small" 
-              checked={overiderSection} 
-              checkedChildren="yes"
+              checked={globalizeSection} 
+              checkedChildren={<Icon type="global" />}
               unCheckedChildren="no"
-              onChange={this.handleOverideriderChange} 
+              onChange={this.handleGlbalizeChange} 
               style={{ marginBottom: 15, marginTop: 15  }}
             /> <Popover content={ 
             
-                 <IntlMessages id="form.part.group.overide.popover.content" />
+                 <IntlMessages id="form.part.group.globalize.popover.content" />
             
             } title= {<div> 
-              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.overide.popover.title" />
+              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.globalize.popover.title" />
               </div> }  trigger="click">
               <IntlMessages id="global" />  :  <Icon type="question-circle-o" />   </Popover>    
             </Col>
-         { /* end     overide products  */ }
-         { /* start   navigate sections */ }
+         { /* end     globalize products  */ }
+         { /* start   associates sections */ }
          <Col span="8">
             <Switch size="small" 
-              checked={navigateSection} 
-              checkedChildren="yes"
+              checked={associateSection} 
+              checkedChildren={<Icon type="team" />}
               unCheckedChildren="no"
-              onChange={this.handleNaviagionChange} 
+              onChange={this.handleAssociateChange} 
               style={{ marginBottom: 15,  marginTop: 15  }}
             /> <Popover content={ 
-              <IntlMessages id="form.part.group.navigate.popover.content" />
+              <IntlMessages id="form.part.group.associates.popover.content" />
             } title={<div> 
-              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.navigate.popover.title" />
+              <IntlMessages id="form.part.group.associates.popover.title" />
               </div> } trigger="click">
             <IntlMessages id="associates" /> : <Icon type="question-circle-o" />   </Popover>    
             </Col>
-         { /* end     navigate sections  */ }
+         { /* end     associates sections  */ }
          { /* start   publish sections */ }
 
             <Col span="8" >
             <Switch size="small" 
               checked={publishSection}
-              checkedChildren="yes"
+              checkedChildren={<Icon type="rocket" />}
               unCheckedChildren="no"
               onChange={this.handlePublishedChange} 
               style={{ marginBottom: 15,  marginTop: 15  }}
             /> <Popover content={ 
               <IntlMessages id="form.part.group.published.popover.content" />
             } title={<div> 
-              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.published.popover.title" />
+              <IntlMessages id="form.part.group.published.popover.title" />
               </div> } trigger="click">
             <IntlMessages id="published" /> : <Icon type="question-circle-o" />   </Popover>    
             </Col>
             
          { /* end     publish sections */ }
          </Row>
-         { /* end     date range */ }
+      
+         { /* end     lifespan range */ }
          <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }}>Add Lifespan</Button>
         </Col>
+        
       </Row>
     );
   }
 }
+
+
+

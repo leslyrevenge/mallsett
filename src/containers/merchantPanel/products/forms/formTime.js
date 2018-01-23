@@ -15,7 +15,7 @@ export default class  extends Component {
     state = {
     associateSection: true,
     publishSection: true,
-    globalizeSection: false
+    globalizeSection: true
   };
   handlePublishedChange = (publishSection) => {
     this.setState({ publishSection });

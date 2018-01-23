@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import DateListItem from './DateListItem';
+import LifespanListItem from './LifespanListItem';
 import { 
   Row, 
+  Collapse,
   Col
 } from 'antd';
+
 
 
 export default class  extends Component {
@@ -11,18 +13,18 @@ export default class  extends Component {
   render() {
     return (
       <Row gutter={24}>
-        <h4  style={{marginBottom: 15}}>Date List </h4>
+        <h4  style={{marginBottom: 15}}>Lifespan List </h4>
         <Col span="12" style={{marginBottom: 15}}  >
-          <DateListItem />
+          <LifespanListItem />
         </Col>
         <Col span="12" style={{marginBottom: 15}}  >
-          <DateListItem />
+          <LifespanListItem />
         </Col>
         <Col span="12" style={{marginBottom: 15}}  >
-          <DateListItem />
+          <LifespanListItem />
         </Col>
         <Col span="12" style={{marginBottom: 15}}  >
-          <DateListItem />
+          <LifespanListItem />
         </Col>
       </Row>
     );
