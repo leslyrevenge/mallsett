@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import IntlMessages from '../../../../components/utility/intlMessages';
-import Availability from './formParts/availability';
 import { 
   Row, 
   Col,
   Input,
-  Popover,
   Switch,
+  Popover,
   Icon,
-  DatePicker,
-  Button
-} from 'antd';
+  Select,
+  Button} from 'antd';
+  
+  const { Option, OptGroup } = Select;
+  const { TextArea } = Input;
 
 export default class  extends Component {
     state = {
@@ -43,17 +44,16 @@ export default class  extends Component {
          
         <Popover content={ 
               <div>
-                {<IntlMessages id="form.part.date.name.popover.content" />} 
+                {<IntlMessages id="form.part.lifespan.name.popover.content" />} 
               </div>
-            } title={<IntlMessages id="form.part.date.name.popover.title" />}  trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.name" />  </Popover>
+            } title={<IntlMessages id="form.part.lifespan.name.popover.title" />}  trigger="click">
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.options.name" />  </Popover>
           <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
           
           
          {/* end name */}
          
-        <Row gutter={24}>
-        <Col span="12">
+
         { /* start   date range */ }
          <Popover content={ 
               <div>
@@ -61,10 +61,25 @@ export default class  extends Component {
                 <p>Content</p>
               </div>
             } title="Title" trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.min" />  </Popover>
-            <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
-          </Col>
-          <Col span="12">
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.options.name" />  </Popover>
+            <Input addonBefore="$" defaultValue=""  style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
+        
+        <Popover content={ 
+              <div>
+                <p>Content</p>
+                <p>Content</p>
+              </div>
+            } title="Title" trigger="click">
+            <Icon type="question-circle-o" /><IntlMessages id="form.part.options.image" />  </Popover>
+         <Select
+            mode= "multiple"
+            style={{ width: '100%', marginBottom: 15, marginTop: 5 }}
+          >
+            <OptGroup label="Select Image">
+              <Option value="1000">Image one</Option>
+              <Option value="1010">Image two</Option>
+            </OptGroup>
+          </Select>
         { /* start   date range */ }
          <Popover content={ 
               <div>
@@ -72,10 +87,9 @@ export default class  extends Component {
                 <p>Content</p>
               </div>
             } title="Title" trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.max" />  </Popover>
-            <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
-          </Col>
-      </Row>
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.options.description" />  </Popover>
+    <TextArea placeholder="" autosize={{ minRows: 2, maxRows: 4 }}   style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }}/>
+         { /* end     date range */ }
       <Row gutter={8}>
          
          { /******************************** 
@@ -136,11 +150,9 @@ export default class  extends Component {
             
          { /* end     publish sections */ }
          </Row>
-      
-         { /* end     date range */ }
-         <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }}>Add Date</Button>
+         
+         <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }}>Add Option</Button>
         </Col>
-        
       </Row>
     );
   }

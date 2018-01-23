@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
-import GroupNavigation from '../navigation/GroupNavigation';
-import FormGroup from '../forms/formProducts';
+import FormWholesale from '../forms/formWholesale';
+import IntlMessages from '../../../../components/utility/intlMessages';
+import DateList from '../lists/DateList';
 import { 
   Row, 
   Col
 } from 'antd';
 
+
 export default class  extends Component {
+
   render() {
     return (
       <Row gutter={24}>
         <Col span="10">
-          <FormGroup />
+          <FormWholesale />
         </Col>
         <Col span="14">
-          <GroupNavigation />
+         
+              <DateList />
         </Col>
       </Row>
     );

@@ -170,6 +170,25 @@ export default class  extends Component {
             </OptGroup>
           </Select>
          { /* end     for privacy policy  */ }
+         { /* start   for description... */ }
+             <Popover content={ 
+              <div>
+                <p>Content</p>
+                <p>Content</p>
+              </div>
+            } title="Title" trigger="click">
+            <Icon type="question-circle-o" /> Description </Popover><a href="#">add new</a>
+          <Select
+            mode= "multiple"
+            style={{ width: '100%', marginBottom: 15, marginTop: 5 }}
+          >
+            <OptGroup label="Select Description">
+              <Option value="21">Description one</Option>
+              <Option value="21">Description two</Option>
+              
+            </OptGroup>
+          </Select>
+         { /* end     for description  */ }
          { /* start   indent - name */ }
           <Popover content={ 
               <div>

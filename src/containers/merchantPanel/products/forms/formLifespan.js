@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import IntlMessages from '../../../../components/utility/intlMessages';
-import Availability from './formParts/availability';
 import { 
   Row, 
   Col,
   Input,
-  Popover,
   Switch,
+  Popover,
   Icon,
   DatePicker,
-  Button
-} from 'antd';
+  Button} from 'antd';
+
 
 export default class  extends Component {
     state = {
@@ -43,16 +42,16 @@ export default class  extends Component {
          
         <Popover content={ 
               <div>
-                {<IntlMessages id="form.part.date.name.popover.content" />} 
+                {<IntlMessages id="form.part.lifespan.name.popover.content" />} 
               </div>
-            } title={<IntlMessages id="form.part.date.name.popover.title" />}  trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.name" />  </Popover>
+            } title={<IntlMessages id="form.part.lifespan.name.popover.title" />}  trigger="click">
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.lifespan.name" />  </Popover>
           <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
           
           
          {/* end name */}
          
-        <Row gutter={24}>
+       <Row gutter={24}>
         <Col span="12">
         { /* start   date range */ }
          <Popover content={ 
@@ -136,11 +135,9 @@ export default class  extends Component {
             
          { /* end     publish sections */ }
          </Row>
-      
          { /* end     date range */ }
-         <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }}>Add Date</Button>
+         <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }}>Add Lifespan</Button>
         </Col>
-        
       </Row>
     );
   }

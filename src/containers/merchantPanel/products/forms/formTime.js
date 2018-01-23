@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import IntlMessages from '../../../../components/utility/intlMessages';
-import moment from 'moment';
 import { 
   Row, 
   Col,
-  Select,
   Input,
   Popover,
   Icon,
+  Switch,
   TimePicker ,
   Button
 } from 'antd';
@@ -15,7 +14,22 @@ import {
 
 
 export default class  extends Component {
+    state = {
+    navigateSection: true,
+    publishSection: true,
+    overiderSection: false
+  };
+  handlePublishedChange = (publishSection) => {
+    this.setState({ publishSection });
+  }
+  handleNaviagionChange = (navigateSection) => {
+    this.setState({ navigateSection });
+  }
+  handleOverideriderChange = (overiderSection) => {
+    this.setState({ overiderSection });
+  }
   render() {
+     const { navigateSection, publishSection, overiderSection } = this.state;
     return (
       <Row gutter={24}>
         <Col span="24">
@@ -50,6 +64,66 @@ export default class  extends Component {
             <Col span={12}>  <TimePicker minuteStep={15} secondStep={10}  style={{ width: '100%', marginBottom: 15, marginTop: 15, borderRadius: 0 }}/> </Col>
             </Row>
          { /* end     date range */ }
+      <Row gutter={8}>
+         
+         { /******************************** 
+         
+              Ending Section
+              
+          ******************************8*/ }
+         { /* start   overide products */ }
+         <Col span="8" >
+            <Switch size="small" 
+              checked={overiderSection} 
+              checkedChildren="yes"
+              unCheckedChildren="no"
+              onChange={this.handleOverideriderChange} 
+              style={{ marginBottom: 15, marginTop: 15  }}
+            /> <Popover content={ 
+            
+                 <IntlMessages id="form.part.group.overide.popover.content" />
+            
+            } title= {<div> 
+              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.overide.popover.title" />
+              </div> }  trigger="click">
+              <IntlMessages id="global" />  :  <Icon type="question-circle-o" />   </Popover>    
+            </Col>
+         { /* end     overide products  */ }
+         { /* start   navigate sections */ }
+         <Col span="8">
+            <Switch size="small" 
+              checked={navigateSection} 
+              checkedChildren="yes"
+              unCheckedChildren="no"
+              onChange={this.handleNaviagionChange} 
+              style={{ marginBottom: 15,  marginTop: 15  }}
+            /> <Popover content={ 
+              <IntlMessages id="form.part.group.navigate.popover.content" />
+            } title={<div> 
+              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.navigate.popover.title" />
+              </div> } trigger="click">
+            <IntlMessages id="associates" /> : <Icon type="question-circle-o" />   </Popover>    
+            </Col>
+         { /* end     navigate sections  */ }
+         { /* start   publish sections */ }
+
+            <Col span="8" >
+            <Switch size="small" 
+              checked={publishSection}
+              checkedChildren="yes"
+              unCheckedChildren="no"
+              onChange={this.handlePublishedChange} 
+              style={{ marginBottom: 15,  marginTop: 15  }}
+            /> <Popover content={ 
+              <IntlMessages id="form.part.group.published.popover.content" />
+            } title={<div> 
+              <IntlMessages id="form.part.group.main.1" /> <IntlMessages id="form.part.group.published.popover.title" />
+              </div> } trigger="click">
+            <IntlMessages id="published" /> : <Icon type="question-circle-o" />   </Popover>    
+            </Col>
+            
+         { /* end     publish sections */ }
+         </Row>
          <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 30, borderRadius: 0 }}>Submit</Button>
         </Col>
       </Row>

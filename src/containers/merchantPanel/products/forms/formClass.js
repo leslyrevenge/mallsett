@@ -5,12 +5,11 @@ import {
   Row, 
   Col,
   Input,
-  Popover,
   Switch,
+  Popover,
   Icon,
-  DatePicker,
-  Button
-} from 'antd';
+  Button} from 'antd';
+
 
 export default class  extends Component {
     state = {
@@ -43,39 +42,38 @@ export default class  extends Component {
          
         <Popover content={ 
               <div>
-                {<IntlMessages id="form.part.date.name.popover.content" />} 
+                {<IntlMessages id="form.part.lifespan.name.popover.content" />} 
               </div>
-            } title={<IntlMessages id="form.part.date.name.popover.title" />}  trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.name" />  </Popover>
+            } title={<IntlMessages id="form.part.lifespan.name.popover.title" />}  trigger="click">
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.lifespan.name" />  </Popover>
           <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
           
           
          {/* end name */}
          
+        { /* start   age range */ }
         <Row gutter={24}>
         <Col span="12">
-        { /* start   date range */ }
          <Popover content={ 
               <div>
                 <p>Content</p>
                 <p>Content</p>
               </div>
             } title="Title" trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.min" />  </Popover>
-            <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
-          </Col>
-          <Col span="12">
-        { /* start   date range */ }
+            <Icon type="question-circle-o" /> Count Minimum  </Popover>
+         <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
+         </Col>
+         <Col span="12">
          <Popover content={ 
               <div>
                 <p>Content</p>
                 <p>Content</p>
               </div>
             } title="Title" trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.max" />  </Popover>
-            <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
-          </Col>
-      </Row>
+            <Icon type="question-circle-o" /> Count Maximum  </Popover>
+         <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
+         </Col>
+         </Row>
       <Row gutter={8}>
          
          { /******************************** 
@@ -136,11 +134,10 @@ export default class  extends Component {
             
          { /* end     publish sections */ }
          </Row>
-      
-         { /* end     date range */ }
-         <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }}>Add Date</Button>
+         
+         { /* end     lifespan range */ }
+         <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }}>Add Lifespan</Button>
         </Col>
-        
       </Row>
     );
   }

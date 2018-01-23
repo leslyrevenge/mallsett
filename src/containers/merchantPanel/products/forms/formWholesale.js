@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import IntlMessages from '../../../../components/utility/intlMessages';
-import Availability from './formParts/availability';
 import { 
   Row, 
   Col,
+  Select,
   Input,
-  Popover,
   Switch,
+  Popover,
   Icon,
-  DatePicker,
-  Button
-} from 'antd';
+  Button} from 'antd';
+const { Option, OptGroup } = Select;
 
 export default class  extends Component {
     state = {
@@ -43,39 +42,87 @@ export default class  extends Component {
          
         <Popover content={ 
               <div>
-                {<IntlMessages id="form.part.date.name.popover.content" />} 
+                {<IntlMessages id="form.part.lifespan.name.popover.content" />} 
               </div>
-            } title={<IntlMessages id="form.part.date.name.popover.title" />}  trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.name" />  </Popover>
+            } title={<IntlMessages id="form.part.lifespan.name.popover.title" />}  trigger="click">
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.lifespan.name" />  </Popover>
           <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
           
           
          {/* end name */}
          
+        { /* start   age range */ }
         <Row gutter={24}>
         <Col span="12">
-        { /* start   date range */ }
          <Popover content={ 
               <div>
                 <p>Content</p>
                 <p>Content</p>
               </div>
             } title="Title" trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.min" />  </Popover>
-            <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
-          </Col>
-          <Col span="12">
-        { /* start   date range */ }
+            <Icon type="question-circle-o" /> Amount  </Popover>
+          <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
+         </Col>
+         <Col span="12">
          <Popover content={ 
               <div>
                 <p>Content</p>
                 <p>Content</p>
               </div>
             } title="Title" trigger="click">
-            <Icon type="question-circle-o" />  <IntlMessages id="form.part.date.max" />  </Popover>
-            <DatePicker size=""  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }} />
-          </Col>
-      </Row>
+            <Icon type="question-circle-o" /> Discount Type  </Popover>
+         <Select
+            mode= ""
+            style={{ width: '100%', marginBottom: 15, marginTop: 5 }}
+          >
+            <OptGroup label="Select Type">
+              <Option value="1000">Percentage</Option>
+              <Option value="1010">Fixed Amount</Option>
+            </OptGroup>
+          </Select>
+         </Col>
+         </Row>
+         { /* end     lifespan range */ }
+         { /* start   age range */ }
+        <Row gutter={24}>
+        <Col span="12">
+         <Popover content={ 
+              <div>
+                <p>Content</p>
+                <p>Content</p>
+              </div>
+            } title="Title" trigger="click">
+            <Icon type="question-circle-o" /> Date Range  </Popover>
+          <Select
+            mode= "multiple"
+            style={{ width: '100%', marginBottom: 15, marginTop: 5 }}
+          >
+            <OptGroup label="Dates">
+              <Option value="1000">date name - 1 Jan 2018 - 10 Jan 2018</Option>
+              <Option value="1100">date name - 1 Feb 2018 - 10 Feb 2018</Option>
+            </OptGroup>
+          </Select>
+         </Col>
+         <Col span="12">
+         <Popover content={ 
+              <div>
+                <p>Content</p>
+                <p>Content</p>
+              </div>
+            } title="Title" trigger="click">
+            <Icon type="question-circle-o" /> Time Range  </Popover>
+         <Select
+            mode= "multiple"
+            style={{ width: '100%', marginBottom: 15, marginTop: 5 }}
+          >
+            <OptGroup label="Time">
+              <Option value="1010">time name - 5:30 am - 8:30 am </Option>
+              <Option value="1000">time name - 5:30 pm - 8:30 pm </Option>
+            </OptGroup>
+          </Select>
+         </Col>
+         </Row>
+         { /* end     lifespan range */ }
       <Row gutter={8}>
          
          { /******************************** 
@@ -136,11 +183,9 @@ export default class  extends Component {
             
          { /* end     publish sections */ }
          </Row>
-      
-         { /* end     date range */ }
-         <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 5, borderRadius: 0 }}>Add Date</Button>
+
+         <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 15, borderRadius: 0 }}>Add Lifespan</Button>
         </Col>
-        
       </Row>
     );
   }
