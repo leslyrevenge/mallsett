@@ -7,15 +7,21 @@ import {
   Input,
   Switch,
   Popover,
+  Slider,
+  InputNumber,
   Icon,
   Button} from 'antd';
 const { Option, OptGroup } = Select;
 
 export default class  extends Component {
+
+  
     state = {
     navigateSection: true,
     publishSection: true,
-    overiderSection: false
+    overiderSection: false,
+    minValue: 1,
+    maxValue: 1000,
   };
   handlePublishedChange = (publishSection) => {
     this.setState({ publishSection });
@@ -26,10 +32,15 @@ export default class  extends Component {
   handleOverideriderChange = (overiderSection) => {
     this.setState({ overiderSection });
   }
+  handleSliderChange = (value) => {
+    this.setState({
+      inputValue: value,
+    });
+  }
   render() {
      const { navigateSection, publishSection, overiderSection } = this.state;
     return (
-      <Row gutter={24}>
+      <Row gutter={8}>
         <Col span="24">
         
          
@@ -52,7 +63,37 @@ export default class  extends Component {
          {/* end name */}
          
         { /* start   age range */ }
-        <Row gutter={24}>
+        <Row gutter={8}>
+       
+         <Col span="12">
+         <Popover content={ 
+              <div>
+                <p>Content</p>
+                <p>Content</p>
+              </div>
+            } title="Title" trigger="click">
+            <Icon type="question-circle-o" /> Min Purchase  </Popover>
+          <InputNumber
+            min={this.state.minValue}
+            max={this.state.maxValue} style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
+         </Col>
+         <Col span="12">
+         <Popover content={ 
+              <div>
+                <p>Content</p>
+                <p>Content</p>
+              </div>
+            } title="Title" trigger="click">
+            <Icon type="question-circle-o" /> Max Purchase  </Popover>
+         <InputNumber
+            min={this.state.minValue}
+            max={this.state.maxValue} style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
+        
+         </Col>
+         </Row>
+         
+         
+        <Row gutter={8}>
         <Col span="12">
          <Popover content={ 
               <div>
@@ -84,7 +125,7 @@ export default class  extends Component {
          </Row>
          { /* end     lifespan range */ }
          { /* start   age range */ }
-        <Row gutter={24}>
+        <Row gutter={8}>
         <Col span="12">
          <Popover content={ 
               <div>

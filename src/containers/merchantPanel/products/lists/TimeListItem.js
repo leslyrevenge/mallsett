@@ -12,7 +12,7 @@ export default class  extends Component {
     return (
       <GroupWrapper>
         <div className="dateTimeHolder">
-          <h6>Morning Classes</h6>
+          <h6>Morning Classes  <span><Icon type="team" /><Icon type="rocket" /><Icon type="global" /></span></h6>
           <p>08:00:02 am to 09:00:02 pm</p>
           <p><Icon type="delete" /> delete <Icon type="edit" /> edit </p>
         </div>

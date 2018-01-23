@@ -99,13 +99,13 @@
   "form.part.group.groupImage.popover.title": "Image",
   "form.part.group.groupImage.popover.content": "Image content here ",
   
-  "form.part.group.overide": "Overide Products",
-  "form.part.group.overide.popover.title": "Overide Products",
-  "form.part.group.overide.popover.content": "Overide content here ",
+  "form.part.group.globalize": "Globalize",
+  "form.part.group.globalize.popover.title": "Globilize Tutorial",
+  "form.part.group.globalize.popover.content": "Globilize content ",
   
-  "form.part.group.navigate": "Navigate Group",
-  "form.part.group.navigate.popover.title": "Navigate Group",
-  "form.part.group.navigate.popover.content": "Navigate content here ",
+  "form.part.group.associates": "Associates",
+  "form.part.group.associates.popover.title": "Associates Tutorial",
+  "form.part.group.associates.popover.content": "Associates content ",
   
     "form.part.group.published": "Published Group",
   "form.part.group.published.popover.title": "Published Group",
@@ -149,7 +149,27 @@
   
    "form.part.upload.dagger": "or Upload the File",
   "form.part.upload.dagger.popover.title": "Date Name",
-  "form.part.upload.dagger.popover.content": "Description content here "
+  "form.part.upload.dagger.popover.content": "Description content here ",
   
+  "form.part.time.name": "Name of Time Range",
+  "form.part.time.min": "Start Time",
+  "form.part.time.max": "End Time",
+  "form.part.time.name.popover.content": "Time content ",
+  "form.part.time.name.popover.title": "Naming Time Range",
+   "form.part.time.min.popover.content": "min content ",
+  "form.part.time.min.popover.title": "Start Time Tutorial",
+  "form.part.time.max.popover.content": "end content ",
+  "form.part.time.max.popover.title": "End Time Tutorial",
+
+  
+  "form.part.date.name": "Name of Date Range",
+  "form.part.date.min": "Start Date",
+  "form.part.date.max": "End Date",
+  "form.part.date.name.popover.content": "Date content ",
+  "form.part.date.name.popover.title": "Date Tutorial",
+   "form.part.date.min.popover.content": "min content ",
+  "form.part.datetime.min.popover.title": "Start Date Tutorial",
+  "form.part.date.max.popover.content": "end content ",
+  "form.part.date.max.popover.title": "End Date Tutorial"
   
 }

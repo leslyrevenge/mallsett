@@ -60,7 +60,7 @@ export default class  extends Component {
               </div>
             } title={<IntlMessages id="form.part.price.name.popover.title" />}  trigger="click">
             <Icon type="question-circle-o" />  <IntlMessages id="form.part.price.name" />  </Popover>
-          <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
+          <Input addonBefore="$" style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
           
           </Col>
          {/* end price */}
