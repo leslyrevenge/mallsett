@@ -127,7 +127,7 @@ class BuildYourMall extends Component {
         <LayoutContent>
             <Row gutter={24} style={{ marginTop: '0px'}}>
               <Col span="24">
-                <Tabs defaultActiveKey='1' size='small'>
+                <Tabs defaultActiveKey='1' size='small' animated={false}>
                   {steps.map(item =><TabPane key={item.key} tab={<span>{item.title}</span>} >
                   {item.content}
                   </TabPane> )}
