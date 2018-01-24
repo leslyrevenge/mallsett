@@ -181,6 +181,14 @@
    "form.part.lifespan.min.popover.content": "min content ",
   "form.part.lifespan.min.popover.title": "Start Lifespan Tutorial",
   "form.part.lifespan.max.popover.content": "end content ",
-  "form.part.lifespan.max.popover.title": "End Lifespan Tutorial"
+  "form.part.lifespan.max.popover.title": "End Lifespan Tutorial",
   
+  
+    "form.part.description.name": "Description Title",
+  "form.part.description.name.popover.content": "Description title content ",
+  "form.part.description.name.popover.title": "Naming Lifespan Range",
+    "form.part.description.quill": "Description",
+   "form.part.description.quill.popover.content": "description quill content ",
+  "form.part.description.quill.popover.title": "Description Tutorial"
+
 }

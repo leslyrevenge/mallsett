@@ -5,12 +5,12 @@ import 'react-quill/dist/quill.snow.css';
 // import 'react-quill/dist/quill.bubble.css';
 import 'react-quill/dist/quill.core.css';
 import QuillEditor from './styles/editor.style';
-import Availability from './formParts/availability';
 import { 
   Row, 
   Col,
   Popover,
   Icon,
+  Input,
   Switch,
   Button
 } from 'antd';
@@ -69,10 +69,35 @@ export default class Editor extends Component {
     return (
        <Row gutter={24}>
         <Col span="24">
+        
+        {/* start name */}
          <Row gutter={8}>
          <Col span="24" >
-      <QuillEditor>
-        <ReactQuill {...options} />
+        <Popover content={ 
+              <div>
+                {<IntlMessages id="form.part.description.name.popover.content" />} 
+              </div>
+            } title={<IntlMessages id="form.part.description.name.popover.title"/>}  trigger="click">
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.description.name" />  </Popover>
+          <Input style={{ width: '100%', marginBottom: 15, marginTop: 5 }} />
+          
+          
+         {/* end name */}
+         </Col>
+         </Row>
+         <Row gutter={8}>
+         <Col span="24" style={{ width: '100%', marginBottom: 15, marginTop: 5 }} >
+         
+         <Popover content={ 
+              <div>
+                {<IntlMessages id="form.part.description.quill.popover.content" />} 
+              </div>
+            } title={<IntlMessages id="form.part.description.quill.popover.title"/>}  trigger="click">
+            <Icon type="question-circle-o" />  <IntlMessages id="form.part.description.quill" />  </Popover>
+         </Col>
+         <Col span="24" >
+      <QuillEditor style={{ width: '100%', marginBottom: 15, marginTop: 5 }} >
+        <ReactQuill {...options}  />
       </QuillEditor>
       </Col>
       </Row>
@@ -130,7 +155,7 @@ export default class Editor extends Component {
             
          { /* end     publish sections */ }
          </Row>
-      <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 15, borderRadius: 0 }}>Add Lifespan</Button>
+      <Button type="primary"  style={{ width: '100%', marginBottom: 15, marginTop: 15, borderRadius: 0 }}>Add Description</Button>
       </Col>
       </Row>
     );

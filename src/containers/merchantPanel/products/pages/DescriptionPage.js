@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FormDescription from '../forms/formDescription';
 import IntlMessages from '../../../../components/utility/intlMessages';
-import DateList from '../lists/DateList';
+import DescriptionList from '../lists/DescriptionList';
 import { 
   Row, 
   Collapse,
@@ -22,7 +22,7 @@ export default class  extends Component {
         </Col>
         <Col span="6">
          
-              <DateList />
+              <DescriptionList />
         </Col>
       </Row>
     );
