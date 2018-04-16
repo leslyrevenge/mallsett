@@ -9,7 +9,7 @@ export default class  extends Component {
 
       <div className="groupBasicDetail" >
         <div className="groupListImageWrapper">
-          <img className="GroupListImage" src="http://bahaiteachings.org/wp-content/uploads/2013/05/Black-Woman.jpg" />
+          <img className="GroupListImage" alt="" src="http://bahaiteachings.org/wp-content/uploads/2013/05/Black-Woman.jpg" />
         </div>
         <div className="grouplistInfoWrapper" >
           <div className="GroupListOverlay">

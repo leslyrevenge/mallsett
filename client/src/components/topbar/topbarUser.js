@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import TopbarModal from './topbarModal.style';
 import UserPanel from '../UserPanel/userPanel';
 import userpic from '../../image/user1.png';
-function mapStateToProps(state) {
-  return {
-    auth: state.auth
-  }
-}
+
 class TopbarUser extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +32,6 @@ class TopbarUser extends Component {
   }
   render() {
     console.log(this.props)
-    const { customizedTheme } = this.props;
     const { visible } = this.state;
     return (
       <div onClick={this.showModal} >

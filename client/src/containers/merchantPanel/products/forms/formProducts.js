@@ -13,24 +13,6 @@ import {
 
 const { Option, OptGroup } = Select;
 
-const readyInSelectAfter = (
-  <Select defaultValue="minutes" style={{ width: 80 }}>
-    <Option value="minutes">Minutes</Option>
-    <Option value="hours">Hours</Option>
-    <Option value="days">Days</Option>
-    <Option value="weeks">Weeks</Option>
-    <Option value="months">Months</Option>
-    <Option value="years">Years</Option>
-  </Select>
-);
-
-const indentSelectAfter = (
-  <Select defaultValue="minutes" style={{ width: 80 }}>
-    <Option value="minutes">Begining</Option>
-    <Option value="hours">End</Option>
-  </Select>
-);
-
 export default class  extends Component {
    state = {
     navigateSection: true,

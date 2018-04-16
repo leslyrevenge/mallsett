@@ -6,14 +6,10 @@ import { Card, Icon, Popover, Button } from 'antd';
 import { Radio } from 'antd';
 import Select, { SelectOption } from '../../../components/uielements/select';
 import Input, { InputGroup } from '../../../components/uielements/input';
-import MerchantCategoryInputTag from './MerchantCategoryInputTag';
 import BusinessLogo from './BusinessLogo';
-import BusinessQuickChart from './reactVis/BusinessQuickChart';
 
 
 const TabPane = Tabs.TabPane;
-const RadioButton = Radio.Button;
-const RadioGroup = Radio.Group;
 const Option = SelectOption;
 
 const children = [];
@@ -82,9 +78,11 @@ class ServiceCard extends Component {
           </Col>
         </Row>
         <Row gutter={24} style={{ marginTop: 20 }}>
+        <Col span="16">
 
-          <Col span="24">
-            <Button type="primary" icon="shopping-cart" className="fullButton"> Shop this Merchant </Button>
+          </Col>
+          <Col span="8">
+            <Button type="danger" icon="delete" className="fullButton"> Remove </Button>
           </Col>
       </Row>
       <Row gutter={24} style={{ marginTop: 20 }}>
@@ -123,13 +121,13 @@ class ServiceCard extends Component {
       </Row>
     </TabPane>
     <TabPane tab={<span><Icon type="lock" /> Privacy</span>} key="3">
-      <h3>Unclaimed Account - Plugg Level Privacy<Button type="dashed" shape="" icon="info-circle-o" />  </h3>
+      Create a Privacy Policy of your own or we will use ours. <Button type="dashed" shape="circle" icon="edit" />
     </TabPane>
     <TabPane tab={<span><Icon type="exception" /> Terms</span>} key="4">
-     <h3>Claimed Account - Plugg Level Terms <Button type="dashed" shape="" icon="info-circle-o" />  </h3>
+     Create a Terms and Condition of your own or we will use ours. <Button type="dashed" shape="circle" icon="edit" />
     </TabPane>
     <TabPane tab={<span><Icon type="question-circle-o" /> F.A.Q.</span>} key="5">
-     <h3>Claimed Account - Merchant Level Terms <Button type="dashed" shape="" icon="info-circle-o" />   </h3>
+     Create some an FAQ sections and lower your customer service cost. <Button type="dashed" shape="circle" icon="edit" />
     </TabPane>
   </Tabs>
        </Row>

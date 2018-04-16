@@ -7,7 +7,6 @@ import {
   Input,
   Switch,
   Popover,
-  Slider,
   InputNumber,
   Icon,
   Button} from 'antd';
